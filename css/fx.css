@@ -1,0 +1,27 @@
+/* css/fx.css — animations, fissures, toasts, fond animé, confettis */
+
+html{background:var(--bg)}body{background:transparent}
+#bgc{position:fixed;top:0;left:0;width:100vw;height:100dvh;z-index:-1;display:block}
+.app,main{position:relative;z-index:1}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+main.enter{animation:in .35s ease}
+.stat{transition:transform .15s,box-shadow .15s}.stat:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.22)}
+.btn,.tabs button{transition:transform .12s,border-color .15s,background .15s}.btn:hover,.tabs button:hover{border-color:var(--ac)}.btn:active,.tabs button:active{transform:scale(.96)}
+.opt{position:relative;overflow:hidden;transition:border-color .15s,background .15s,transform .15s}
+.opt:not(:disabled):hover{border-color:var(--ac);transform:translateX(3px)}
+.opt:disabled{cursor:default}
+.opt.ok.fresh{animation:pop .4s ease}
+.opt.ko.fresh{animation:shake .45s ease}
+@keyframes pop{40%{transform:scale(1.04)}}
+@keyframes shake{0%,100%{transform:none}15%{transform:translateX(-6px) rotate(-1deg)}30%{transform:translateX(5px) rotate(1deg)}45%{transform:translateX(-4px)}60%{transform:translateX(3px)}80%{transform:translateX(-1px)}}
+.crack-overlay{position:absolute;inset:0;background-size:100% 100%;background-repeat:no-repeat;pointer-events:none;animation:crk .55s ease forwards}
+@keyframes crk{from{opacity:0}25%{opacity:1}to{opacity:.85}}
+.bar i{background:linear-gradient(90deg,var(--c,var(--ac)),var(--ok));transition:width .35s ease}
+.hot{color:#ff9d3e;font-weight:700}
+.dot{transition:transform .12s}.dot:hover{transform:scale(1.5)}
+#fb,#res,.les{animation:in .25s ease}
+#toasts{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:600;display:flex;flex-direction:column;gap:8px;align-items:center;pointer-events:none}
+.toast{background:var(--card);border:1px solid var(--ac);border-radius:10px;padding:10px 16px;font-size:.9rem;box-shadow:0 6px 20px rgba(0,0,0,.35);animation:in .25s ease,out .3s ease 2.7s forwards}
+@keyframes out{to{opacity:0}}
+.fxc{position:fixed;inset:0;z-index:300;pointer-events:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}

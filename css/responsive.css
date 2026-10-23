@@ -1,0 +1,4 @@
+/* css/responsive.css — adaptation mobile (toujours chargé en dernier) */
+
+@media(max-width:720px){.app{grid-template-columns:1fr}aside{position:static;height:auto}nav{display:flex;overflow-x:auto;gap:4px}nav button{white-space:nowrap;width:auto}.row{grid-template-columns:1fr 1fr}}
+@media(max-width:720px){.navx{display:none}}

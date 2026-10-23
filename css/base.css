@@ -1,0 +1,8 @@
+/* css/base.css — variables de couleurs, thèmes clair/sombre, reset */
+
+:root{--bg:#f4f4f8;--card:#fff;--tx:#1b1b2a;--mu:#6b6b80;--bd:#e0e0ea;--ac:#7c5cff;--ok:#18a058;--ko:#e5484d;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light;--pr:76,88,140}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f0f17;--card:#181824;--tx:#ececf5;--mu:#9a9ab2;--bd:#2a2a3c;--pr:255,255,255;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f0f17;--card:#181824;--tx:#ececf5;--mu:#9a9ab2;--bd:#2a2a3c;--pr:255,255,255;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.5}
+ul{padding-left:20px;margin:0}li{margin:6px 0}

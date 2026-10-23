@@ -1,0 +1,16 @@
+/* css/layout.css — structure générale : grille, barre latérale, zone principale */
+
+.app{display:grid;grid-template-columns:240px 1fr;min-height:100vh}
+aside{background:var(--card);border-right:1px solid var(--bd);padding:16px;position:sticky;top:0;height:100vh;overflow:auto}
+aside h1{font-size:1.05rem;margin:0 0 4px}aside small{color:var(--mu)}
+nav button{display:flex;gap:10px;align-items:center;width:100%;text-align:left;background:none;border:0;color:var(--tx);padding:10px;border-radius:10px;cursor:pointer;font:inherit;margin-top:4px}
+nav button:hover{background:var(--bg)}nav button.on{background:var(--ac);color:#fff}
+main{padding:24px;max-width:900px;width:100%}
+
+/* réorganisation des matières par glisser-déposer */
+nav button[data-id]:not([data-id="home"]){cursor:grab;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+nav button.drag{cursor:grabbing;position:relative;z-index:30;background:var(--card);color:var(--tx);box-shadow:0 8px 20px rgba(0,0,0,.35);transition:none}
+nav button.ins-before{box-shadow:inset 0 3px 0 var(--ac)}nav button.ins-after{box-shadow:inset 0 -3px 0 var(--ac)}
+nav.horiz button.ins-before{box-shadow:inset 3px 0 0 var(--ac)}nav.horiz button.ins-after{box-shadow:inset -3px 0 0 var(--ac)}
+body.dragging,body.dragging *{cursor:grabbing!important}
+.navx{display:block;margin-top:10px;font-size:.78rem}.navx a{color:var(--ac)}

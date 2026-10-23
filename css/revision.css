@@ -1,0 +1,6 @@
+/* css/revision.css — onglet « À réviser » (répétition espacée, questions ratées) */
+
+.rvgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.rvgrid .card{margin-bottom:0}
+.rvn{font-size:2.2rem;font-weight:800;line-height:1.1;color:var(--ac)}
+#rvo{margin-bottom:6px}

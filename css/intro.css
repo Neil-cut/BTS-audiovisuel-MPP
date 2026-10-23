@@ -1,0 +1,7 @@
+/* css/intro.css — écran d’accueil (spawn) */
+
+#intro{position:fixed;inset:0;z-index:50;display:grid;place-items:center;text-align:center;padding:24px;background:linear-gradient(135deg,#1a1033,#0b1b3a,#2a0d2e);background-size:300% 300%;animation:bg 12s ease infinite;color:#fff}
+@keyframes bg{50%{background-position:100% 100%}}
+.hero h1{font-size:clamp(2rem,7vw,3.6rem);margin:.3em 0 0}.hero p{font-size:1.1rem;opacity:.8}
+.rec{color:#ff4d4d;font-weight:700;letter-spacing:.2em;animation:bl 1.2s steps(2) infinite}@keyframes bl{50%{opacity:.2}}
+.big{font-size:1.2rem;padding:14px 32px;margin:18px 0}

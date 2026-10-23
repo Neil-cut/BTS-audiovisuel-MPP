@@ -1,0 +1,62 @@
+/* css/onepiece.css — thème One Piece : mer profonde, or des trésors, affiches de prime */
+
+:root[data-theme="onepiece"]{--bg:#06223f;--card:#0d3a66;--tx:#fff3d1;--mu:#b7c9e2;--bd:#d4a017;--ac:#e63946;--ok:#2ecc71;--ko:#ff6b6b;--pr:255,214,102;color-scheme:dark}
+[data-theme="onepiece"] h1,[data-theme="onepiece"] h2,[data-theme="onepiece"] h3{font-family:Georgia,"Times New Roman",serif;letter-spacing:.02em}
+[data-theme="onepiece"] h2{text-shadow:0 2px 0 rgba(0,0,0,.45)}
+[data-theme="onepiece"] aside{background:linear-gradient(180deg,#0b2d52,#06223f);border-right:2px solid var(--bd)}
+[data-theme="onepiece"] .card{border-width:2px;box-shadow:0 4px 0 rgba(0,0,0,.28)}
+[data-theme="onepiece"] .stat{background:linear-gradient(#f4e2b4,#e8cf94);color:#3a2810;border:2px solid #8a5a1e;border-left:8px solid var(--c,var(--ac));font-family:Georgia,"Times New Roman",serif;box-shadow:0 5px 0 #5c3a12}
+[data-theme="onepiece"] .stat .mu{color:#6b4d22}
+[data-theme="onepiece"] .stat .bar{background:rgba(58,40,16,.22)}
+[data-theme="onepiece"] .tabs button.on,[data-theme="onepiece"] .btn.p{box-shadow:0 0 12px rgba(230,57,70,.55)}
+[data-theme="onepiece"] .opt{background:rgba(6,34,63,.75)}
+[data-theme="onepiece"] #intro{background:linear-gradient(180deg,#f6a93b 0%,#e8603c 28%,#0d3a66 58%,#06223f 100%);background-size:auto;animation:none}
+
+/* --- version enrichie : navire en bois, affiches WANTED, parchemin, vagues, bérrys --- */
+[data-theme="onepiece"] aside{background:repeating-linear-gradient(90deg,#4a2c12 0 38px,#3b2210 38px 40px);border-right:4px solid #d4a017}
+[data-theme="onepiece"] aside small{color:#e8cf94}
+[data-theme="onepiece"] nav button:hover{background:rgba(0,0,0,.3)}
+[data-theme="onepiece"] nav button.on,[data-theme="onepiece"] .tabs button.on,[data-theme="onepiece"] .btn.p{background:linear-gradient(#f0b429,#d4880f);color:#3a2000;border-color:#8a5a1e;font-weight:700}
+[data-theme="onepiece"] main>h2::after{content:"";display:block;height:6px;margin-top:8px;border-radius:3px;background:repeating-linear-gradient(135deg,#d4a017 0 6px,#8a5a1e 6px 12px)}
+[data-theme="onepiece"] .bar{background:#041829;border:1px solid var(--bd)}
+[data-theme="onepiece"] .bar i{background:linear-gradient(90deg,#f0b429,#e63946)}
+[data-theme="onepiece"] .stat{border-radius:6px;background-image:radial-gradient(circle at 18% 14%,rgba(120,80,20,.18),transparent 40%),radial-gradient(circle at 88% 92%,rgba(120,80,20,.22),transparent 45%),linear-gradient(#f4e2b4,#e8cf94)}
+[data-theme="onepiece"] .grid .stat::before{content:"WANTED";display:block;text-align:center;font:900 .85rem Georgia,serif;letter-spacing:.4em;color:#3a2810;border-bottom:2px solid #3a2810;margin-bottom:8px;padding-bottom:4px}
+[data-theme="onepiece"] .les{background:#f1dcab;color:#3a2810;border-color:#8a5a1e}
+[data-theme="onepiece"] .les h3{color:#8a2b1c}
+[data-theme="onepiece"] .les code{background:#e3c98a;color:#3a2810;border-color:#8a5a1e}
+[data-theme="onepiece"] .les .note{background:#ecd49c;color:#3a2810;border-left-color:#c0392b}
+[data-theme="onepiece"] body::before,[data-theme="onepiece"] body::after{content:"";position:fixed;left:0;right:0;bottom:0;z-index:0;pointer-events:none;background-repeat:repeat-x;background-position:0 100%}
+[data-theme="onepiece"] body::before{height:90px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 90'%3E%3Cpath d='M0 45 Q75 10 150 45 T300 45 T450 45 T600 45 V90 H0Z' fill='%23104c80'/%3E%3C/svg%3E");background-size:600px 90px;background-position:var(--wa,0px) 100%;opacity:.5}
+[data-theme="onepiece"] body::after{height:60px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 60'%3E%3Cpath d='M0 30 Q50 5 100 30 T200 30 T300 30 T400 30 V60 H0Z' fill='%231a6aa8'/%3E%3C/svg%3E");background-size:400px 60px;background-position:var(--wb,0px) 100%;opacity:.6}
+.berry{position:fixed;z-index:400;pointer-events:none;color:#f0b429;font:900 1.2rem Georgia,serif;text-shadow:0 2px 0 #3a2000;animation:berry 1s ease-out forwards}
+@keyframes berry{to{transform:translateY(-70px);opacity:0}}
+
+/* --- détails cachés et clins d'œil --- */
+:root[data-theme="onepiece"]{cursor:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2732%27%20height%3D%2732%27%3E%3Cpath%20d%3D%27M4%204L26%2026%27%20stroke%3D%27%23e8edf5%27%20stroke-width%3D%273%27%20stroke-linecap%3D%27round%27%2F%3E%3Cpath%20d%3D%27M28%204L6%2026%27%20stroke%3D%27%23c9d4e6%27%20stroke-width%3D%273%27%20stroke-linecap%3D%27round%27%2F%3E%3Cpath%20d%3D%27M21%2023l7%205M25%2019l-5%207%27%20stroke%3D%27%23d4a017%27%20stroke-width%3D%273%27%2F%3E%3Cpath%20d%3D%27M11%2023l-7%205M7%2019l5%207%27%20stroke%3D%27%23d4a017%27%20stroke-width%3D%273%27%2F%3E%3C%2Fsvg%3E") 4 4,auto}
+[data-theme="onepiece"] main>h2::after{background:none;height:auto;content:"✕";text-align:right;color:#e63946;font-size:1rem;line-height:.9;padding-top:2px;border-top:3px dotted #d4a017;border-radius:0}
+[data-theme="onepiece"] .bar{overflow:visible;height:10px}
+[data-theme="onepiece"] .bar i{position:relative}
+[data-theme="onepiece"] .bar i::after{content:"🥤";position:absolute;right:-9px;top:-10px;font-size:16px}
+[data-theme="onepiece"] .opt~p{position:relative;background:#fff3d1;color:#3a2810;border:2px solid #3a2810;border-radius:14px;padding:10px 14px;margin-top:14px}
+[data-theme="onepiece"] .opt~p::after{content:"";position:absolute;top:-12px;left:26px;border:10px solid transparent;border-top:0;border-bottom-color:#3a2810}
+[data-theme="onepiece"] .opt~p .mu{color:#6b4d22}
+[data-theme="onepiece"] #fb:empty{display:none}
+#pnd,#topbtn{display:none}
+[data-theme="onepiece"] #pnd{display:block;margin-top:40px;text-align:right;opacity:.12;cursor:pointer;transition:opacity .2s}
+[data-theme="onepiece"] #pnd:hover{opacity:.85}
+[data-theme="onepiece"] #topbtn.show{display:block;position:fixed;right:18px;bottom:78px;z-index:50;width:52px;height:52px;border-radius:50%;border:2px solid #8a5a1e;background:linear-gradient(#f0b429,#d4880f);font-size:26px;cursor:pointer}
+#topbtn.gomu{animation:gomu .7s ease}
+@keyframes gomu{30%{transform:scale(.7,1.9)}60%{transform:scale(1.2,.8)}}
+.poster{position:fixed;left:50%;top:50%;z-index:450;width:260px;padding:16px;text-align:center;background:linear-gradient(#f4e2b4,#e8cf94);color:#3a2810;border:3px solid #8a5a1e;border-radius:6px;font-family:Georgia,serif;box-shadow:0 12px 40px rgba(0,0,0,.5);transform:translate(-50%,-50%) rotate(-2deg);animation:pin .35s ease;cursor:pointer}
+.poster b{display:block;font-size:1.6rem;letter-spacing:.35em;border-bottom:3px solid #3a2810;margin-bottom:10px}
+.poster i{display:block;font-size:1.2rem;margin:8px 0}.poster u{display:block;text-decoration:none;font-weight:900;color:#8a2b1c}.poster small{display:block;margin-top:6px}
+@keyframes pin{from{transform:translate(-50%,-90%) rotate(-8deg) scale(1.3);opacity:0}}
+
+/* --- navire pirate --- */
+/* le bateau est dans la couche du fond : entre la vague arrière et la vague avant. Sa hauteur et son inclinaison sont pilotées par fx.js d'après la forme exacte de la vague */
+.ship{display:none;position:fixed;left:calc(24vw - 70px);bottom:0;z-index:0;pointer-events:none;transform-origin:50% 85%;will-change:transform}
+[data-theme="onepiece"] .ship{display:block}
+.ship svg,.shipimg{display:block}
+.shipimg{height:96px;width:auto}
+@media(prefers-reduced-motion:reduce){.ship{display:none!important}}
