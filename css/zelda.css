@@ -1,0 +1,45 @@
+/* css/zelda.css — thème Zelda (Ocarina of Time) : vert de Hyrule, or de la Triforce, parchemin, menu à bordure dorée */
+
+:root[data-theme="zelda"]{--bg:#0d2818;--card:#163a25;--tx:#f3ecc8;--mu:#b9c9a4;--bd:#c9a227;--ac:#e8b923;--ok:#4cd964;--ko:#ff6b5e;--pr:232,185,35;color-scheme:dark}
+[data-theme="zelda"] h1,[data-theme="zelda"] h2,[data-theme="zelda"] h3{font-family:Georgia,"Times New Roman",serif;letter-spacing:.03em}
+[data-theme="zelda"] h2{text-shadow:0 2px 0 rgba(0,0,0,.5)}
+
+/* barre latérale : bois sombre et filet doré */
+[data-theme="zelda"] aside{background:linear-gradient(180deg,#123521,#0a1f13);border-right:3px solid var(--bd);box-shadow:inset -3px 0 0 rgba(0,0,0,.35)}
+[data-theme="zelda"] aside small{color:#e6d9a0}
+[data-theme="zelda"] nav button:hover{background:rgba(232,185,35,.12)}
+
+/* menu doré (boutons actifs) */
+[data-theme="zelda"] nav button.on,[data-theme="zelda"] .tabs button.on,[data-theme="zelda"] .btn.p{background:linear-gradient(#f3d15a,#c9a227);color:#2a1d00;border-color:#8a6d12;font-weight:700;box-shadow:0 0 12px rgba(232,185,35,.45)}
+[data-theme="zelda"] .tabs button,[data-theme="zelda"] .btn{border-radius:8px;border-width:2px}
+
+/* cartes : cadre de menu à double bordure */
+[data-theme="zelda"] .card{border:2px solid var(--bd);border-radius:10px;box-shadow:inset 0 0 0 3px #0d2818,inset 0 0 0 4px rgba(201,162,39,.55),0 4px 0 rgba(0,0,0,.3)}
+
+/* cartes des matières : parchemin */
+[data-theme="zelda"] .stat{background-image:radial-gradient(circle at 15% 12%,rgba(120,90,20,.16),transparent 40%),radial-gradient(circle at 90% 92%,rgba(120,90,20,.2),transparent 45%),linear-gradient(#f1e3b5,#e2cf93);color:#33260a;border:2px solid #8a6d12;border-left:8px solid var(--c,var(--ac));border-radius:6px;font-family:Georgia,"Times New Roman",serif;box-shadow:0 5px 0 #5a4410}
+[data-theme="zelda"] .stat .mu{color:#6b5320}
+[data-theme="zelda"] .stat .bar{background:rgba(51,38,10,.22)}
+[data-theme="zelda"] .grid .stat::before{content:"🔺 HYRULE 🔺";display:block;text-align:center;font:900 .75rem Georgia,serif;letter-spacing:.3em;color:#33260a;border-bottom:2px solid #33260a;margin-bottom:8px;padding-bottom:4px}
+
+/* titre : filet pointillé doré + Triforce */
+[data-theme="zelda"] main>h2::after{content:"🔺";display:block;text-align:right;font-size:.95rem;line-height:.9;padding-top:2px;margin-top:8px;border-top:3px dotted var(--bd)}
+
+/* barres de progression : jauge verte et or avec Triforce au bout */
+[data-theme="zelda"] .bar{background:#07160d;border:1px solid var(--bd);overflow:visible;height:10px}
+[data-theme="zelda"] .bar i{position:relative;background:linear-gradient(90deg,#4cd964,#e8b923)}
+[data-theme="zelda"] .bar i::after{content:"🔺";position:absolute;right:-8px;top:-9px;font-size:14px}
+
+[data-theme="zelda"] .opt{background:rgba(7,22,13,.7);border-width:2px}
+[data-theme="zelda"] .opt:not(:disabled):hover{border-color:var(--ac)}
+
+/* leçons : parchemin */
+[data-theme="zelda"] .les{background:#f1e3b5;color:#33260a;border-color:#8a6d12}
+[data-theme="zelda"] .les h3{color:#1f6b34}
+[data-theme="zelda"] .les code{background:#e2cf93;color:#33260a;border-color:#8a6d12}
+[data-theme="zelda"] .les .note{background:#ead89c;color:#33260a;border-left-color:#1f6b34}
+
+/* écran d'accueil : ciel, plaine d'Hyrule, forêt */
+[data-theme="zelda"] #intro{background:linear-gradient(180deg,#8fd0f7 0%,#4aa3df 28%,#3f9a45 58%,#123521 100%);background-size:auto;animation:none}
+[data-theme="zelda"] #intro .hero h1{font-family:Georgia,"Times New Roman",serif;color:#fff3c4;text-shadow:0 3px 0 rgba(0,0,0,.45)}
+[data-theme="zelda"] #intro .rec{color:#ffe27a;animation:none}
