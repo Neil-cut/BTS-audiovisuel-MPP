@@ -1,45 +1,63 @@
-/* css/zelda.css — thème Zelda (Ocarina of Time) : vert de Hyrule, or de la Triforce, parchemin, menu à bordure dorée */
+/* css/zelda.css — thème Zelda « Forêt Kokiri » (Ocarina of Time) : vert mousse, écorce, or vieilli, lueur de fée cyan */
 
-:root[data-theme="zelda"]{--bg:#0d2818;--card:#163a25;--tx:#f3ecc8;--mu:#b9c9a4;--bd:#c9a227;--ac:#e8b923;--ok:#4cd964;--ko:#ff6b5e;--pr:232,185,35;color-scheme:dark}
+:root[data-theme="zelda"]{--bg:#1E2B1F;--card:#5C6B4E;--tx:#F4F6F0;--mu:#E4E9DA;--bd:#B8963E;--ac:#3A7D44;--ok:#8be07a;--ko:#ff8a6b;--pr:120,230,200;--cy:77,238,234;--leather:#8B5A2B;color-scheme:dark}
 [data-theme="zelda"] h1,[data-theme="zelda"] h2,[data-theme="zelda"] h3{font-family:Georgia,"Times New Roman",serif;letter-spacing:.03em}
-[data-theme="zelda"] h2{text-shadow:0 2px 0 rgba(0,0,0,.5)}
+[data-theme="zelda"] h2{text-shadow:0 2px 0 rgba(0,0,0,.45)}
 
-/* barre latérale : bois sombre et filet doré */
-[data-theme="zelda"] aside{background:linear-gradient(180deg,#123521,#0a1f13);border-right:3px solid var(--bd);box-shadow:inset -3px 0 0 rgba(0,0,0,.35)}
-[data-theme="zelda"] aside small{color:#e6d9a0}
-[data-theme="zelda"] nav button:hover{background:rgba(232,185,35,.12)}
+/* fond : veines de bois très discrètes (au-dessus du canvas, sous le contenu) */
+[data-theme="zelda"] body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background-image:repeating-linear-gradient(92deg,rgba(244,246,240,.04) 0 2px,transparent 2px 11px),repeating-linear-gradient(88deg,rgba(0,0,0,.1) 0 1px,transparent 1px 17px)}
 
-/* menu doré (boutons actifs) */
-[data-theme="zelda"] nav button.on,[data-theme="zelda"] .tabs button.on,[data-theme="zelda"] .btn.p{background:linear-gradient(#f3d15a,#c9a227);color:#2a1d00;border-color:#8a6d12;font-weight:700;box-shadow:0 0 12px rgba(232,185,35,.45)}
-[data-theme="zelda"] .tabs button,[data-theme="zelda"] .btn{border-radius:8px;border-width:2px}
+/* barre latérale : écorce sombre, filet or vieilli */
+[data-theme="zelda"] aside{background:linear-gradient(180deg,#26382a,#172219);border-right:3px solid var(--bd);box-shadow:inset -3px 0 0 rgba(0,0,0,.3)}
+[data-theme="zelda"] aside small{color:#d5dcc6}
+[data-theme="zelda"] nav button:hover{background:rgba(var(--cy),.1);text-shadow:0 0 8px rgba(var(--cy),.85)}
+[data-theme="zelda"] nav button.on{background:var(--ac);color:#fff;box-shadow:0 0 12px rgba(var(--cy),.35)}
 
-/* cartes : cadre de menu à double bordure */
-[data-theme="zelda"] .card{border:2px solid var(--bd);border-radius:10px;box-shadow:inset 0 0 0 3px #0d2818,inset 0 0 0 4px rgba(201,162,39,.55),0 4px 0 rgba(0,0,0,.3)}
+/* boutons : cuir (secondaire) et vert tunique (action principale) */
+[data-theme="zelda"] .tabs button,[data-theme="zelda"] .btn{background:var(--leather);color:var(--tx);border:2px solid #5d3a17;border-radius:8px}
+[data-theme="zelda"] .tabs button.on,[data-theme="zelda"] .btn.p{background:var(--ac);color:#fff;border-color:#2a5e33;font-weight:700;box-shadow:0 0 10px rgba(58,125,68,.6)}
 
-/* cartes des matières : parchemin */
-[data-theme="zelda"] .stat{background-image:radial-gradient(circle at 15% 12%,rgba(120,90,20,.16),transparent 40%),radial-gradient(circle at 90% 92%,rgba(120,90,20,.2),transparent 45%),linear-gradient(#f1e3b5,#e2cf93);color:#33260a;border:2px solid #8a6d12;border-left:8px solid var(--c,var(--ac));border-radius:6px;font-family:Georgia,"Times New Roman",serif;box-shadow:0 5px 0 #5a4410}
-[data-theme="zelda"] .stat .mu{color:#6b5320}
-[data-theme="zelda"] .stat .bar{background:rgba(51,38,10,.22)}
-[data-theme="zelda"] .grid .stat::before{content:"🔺 HYRULE 🔺";display:block;text-align:center;font:900 .75rem Georgia,serif;letter-spacing:.3em;color:#33260a;border-bottom:2px solid #33260a;margin-bottom:8px;padding-bottom:4px}
+/* effet magique : lueur de fée cyan au survol */
+[data-theme="zelda"] .btn:hover,[data-theme="zelda"] .tabs button:hover,[data-theme="zelda"] .stat:hover,[data-theme="zelda"] .opt:not(:disabled):hover{border-color:#4DEEEA;box-shadow:0 0 14px 2px rgba(var(--cy),.55)}
+[data-theme="zelda"] textarea:focus,[data-theme="zelda"] input:focus{outline:none;border-color:#4DEEEA;box-shadow:0 0 10px rgba(var(--cy),.5)}
 
-/* titre : filet pointillé doré + Triforce */
+/* cartes : olive, cadre à double filet doré */
+[data-theme="zelda"] .card{border:2px solid var(--bd);border-radius:10px;box-shadow:inset 0 0 0 3px var(--card),inset 0 0 0 4px rgba(184,150,62,.6),0 4px 0 rgba(0,0,0,.3)}
+[data-theme="zelda"] .stat{border-left:8px solid var(--c,var(--ac));font-family:Georgia,"Times New Roman",serif}
+[data-theme="zelda"] .opt{background:rgba(30,43,31,.85);border:2px solid rgba(184,150,62,.5)}
+
+/* titres : séparateur pointillé doré (lucioles) + Triforce */
 [data-theme="zelda"] main>h2::after{content:"🔺";display:block;text-align:right;font-size:.95rem;line-height:.9;padding-top:2px;margin-top:8px;border-top:3px dotted var(--bd)}
 
-/* barres de progression : jauge verte et or avec Triforce au bout */
-[data-theme="zelda"] .bar{background:#07160d;border:1px solid var(--bd);overflow:visible;height:10px}
-[data-theme="zelda"] .bar i{position:relative;background:linear-gradient(90deg,#4cd964,#e8b923)}
-[data-theme="zelda"] .bar i::after{content:"🔺";position:absolute;right:-8px;top:-9px;font-size:14px}
-
-[data-theme="zelda"] .opt{background:rgba(7,22,13,.7);border-width:2px}
-[data-theme="zelda"] .opt:not(:disabled):hover{border-color:var(--ac)}
+/* barres de progression : vert et cyan, avec Navi au bout */
+[data-theme="zelda"] .bar{background:#121b13;border:1px solid var(--bd);overflow:visible;height:10px}
+[data-theme="zelda"] .bar i{position:relative;background:linear-gradient(90deg,var(--ac),#4DEEEA)}
+[data-theme="zelda"] .bar i::after{content:"🧚";position:absolute;right:-9px;top:-10px;font-size:15px}
 
 /* leçons : parchemin */
 [data-theme="zelda"] .les{background:#f1e3b5;color:#33260a;border-color:#8a6d12}
-[data-theme="zelda"] .les h3{color:#1f6b34}
+[data-theme="zelda"] .les h3{color:#2c5e34}
 [data-theme="zelda"] .les code{background:#e2cf93;color:#33260a;border-color:#8a6d12}
-[data-theme="zelda"] .les .note{background:#ead89c;color:#33260a;border-left-color:#1f6b34}
+[data-theme="zelda"] .les .note{background:#ead89c;color:#33260a;border-left-color:#2c5e34}
 
-/* écran d'accueil : ciel, plaine d'Hyrule, forêt */
-[data-theme="zelda"] #intro{background:linear-gradient(180deg,#8fd0f7 0%,#4aa3df 28%,#3f9a45 58%,#123521 100%);background-size:auto;animation:none}
-[data-theme="zelda"] #intro .hero h1{font-family:Georgia,"Times New Roman",serif;color:#fff3c4;text-shadow:0 3px 0 rgba(0,0,0,.45)}
-[data-theme="zelda"] #intro .rec{color:#ffe27a;animation:none}
+/* écran d'accueil : sous-bois et rayons de lumière */
+[data-theme="zelda"] #intro{background:radial-gradient(ellipse at 50% 0%,rgba(190,255,200,.4),transparent 60%),linear-gradient(180deg,#0f1c12 0%,#1E2B1F 45%,#2f5a34 100%);background-size:auto;animation:none}
+[data-theme="zelda"] #intro .hero h1{font-family:Georgia,"Times New Roman",serif;color:#F4F6F0;text-shadow:0 0 18px rgba(var(--cy),.65),0 3px 0 rgba(0,0,0,.45)}
+[data-theme="zelda"] #intro .rec{color:#4DEEEA;animation:none;text-shadow:0 0 10px rgba(var(--cy),.8)}
+
+/* bouton retour en haut : Triforce */
+[data-theme="zelda"] #topbtn.show{display:block;position:fixed;right:18px;bottom:18px;z-index:50;width:52px;height:52px;border-radius:50%;border:2px solid var(--bd);background:var(--ac);font-size:0;cursor:pointer;box-shadow:0 0 14px rgba(var(--cy),.5)}
+[data-theme="zelda"] #topbtn.show::after{content:"🔺";font-size:24px}
+
+/* Navi : fée lumineuse qui suit le curseur (créée par zelda.js) */
+#navi{display:none;position:fixed;left:0;top:0;z-index:60;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,#fff 0 25%,#4DEEEA 55%,rgba(77,238,234,0) 72%);box-shadow:0 0 14px 6px rgba(77,238,234,.55)}
+#navi i{position:absolute;top:-4px;width:12px;height:18px;border-radius:50% 50% 50% 50%/70% 70% 30% 30%;background:rgba(255,255,255,.55);animation:wing .18s ease-in-out infinite alternate}
+#navi i:first-child{left:-9px;transform-origin:100% 80%}
+#navi i:last-child{right:-9px;transform-origin:0 80%;animation-direction:alternate-reverse}
+@keyframes wing{from{transform:rotate(-18deg) scaleX(1)}to{transform:rotate(18deg) scaleX(.55)}}
+[data-theme="zelda"] #navi{display:block}
+@media(prefers-reduced-motion:reduce){#navi{display:none!important}}
+
+/* rubis qui s'envolent à chaque bonne réponse */
+.rupee{position:fixed;z-index:400;pointer-events:none;font:900 1.2rem Georgia,serif;text-shadow:0 2px 0 rgba(0,0,0,.6);animation:rupee 1s ease-out forwards}
+@keyframes rupee{to{transform:translateY(-70px);opacity:0}}
