@@ -12,14 +12,68 @@ function tone(f1,f2,d,type,v,delay){
  g.gain.setValueAtTime(.0001,t);g.gain.linearRampToValueAtTime(v||.15,t+.01);g.gain.exponentialRampToValueAtTime(.0001,t+d);
  o.connect(g).connect(c.destination);o.start(t);o.stop(t+d+.03);
 }
+/* bruit filtré (coups, froissement, craquement) : d = durée, v = volume, fc = fréquence du filtre */
+function noi(d,v,fc,delay,q,type){
+ if(!st.snd)return;const c=actx();if(!c)return;
+ const t=c.currentTime+(delay||0),n=Math.max(1,c.sampleRate*d|0),buf=c.createBuffer(1,n,c.sampleRate),a=buf.getChannelData(0);
+ for(let i=0;i<n;i++)a[i]=Math.random()*2-1;
+ const s=c.createBufferSource(),f=c.createBiquadFilter(),g=c.createGain();
+ s.buffer=buf;f.type=type||"bandpass";f.frequency.value=fc;f.Q.value=q||1;
+ g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.0001,t+d);
+ s.connect(f).connect(g).connect(c.destination);s.start(t);s.stop(t+d+.02);
+}
+/* sons du thème One Piece (appelés par sfx seulement quand OP() est vrai) : Fruits du Démon, Haki, ambiance marine, gags */
+const rnd=Math.random;
+const OPS={
+ /* Gomu Gomu : caoutchouc tendu à l'extrême, puis claquement élastique */
+ gomu:()=>{tone(200,720,.3,"triangle",.07);tone(210,740,.3,"sine",.05,.01);noi(.3,.035,2600,0,7);noi(.03,.2,3500,.32,1,"highpass");tone(900,140,.14,"sine",.12,.32);tone(300,420,.08,"sine",.04,.5)},
+ /* Logia : sifflement soudain + crépitement de flammes, étincelles électriques, sable qui glisse */
+ logia:()=>{noi(.3,.12,3200,0,.7,"bandpass");noi(.55,.08,1800,.05,.8,"highpass");for(let i=0;i<9;i++)noi(.02,.13,2000+rnd()*3500,.08+rnd()*.5,3,"highpass");for(let i=0;i<4;i++)tone(1900,160,.07,"sawtooth",.035,.12+i*.09);noi(.5,.05,900,.25,.8,"lowpass")},
+ /* Gura Gura : verre épais qui se brise en mille morceaux, grondement sismique */
+ gura:()=>{noi(.06,.28,5200,0,1,"highpass");tone(70,38,.6,"sine",.2);noi(.55,.16,90,0,.7,"lowpass");for(let i=0;i<16;i++)tone(2400+rnd()*4200,2400+rnd()*3000,.05+rnd()*.1,"triangle",.025+rnd()*.03,.02+i*.018+rnd()*.15)},
+ /* Ope Ope no Mi, Room : bourdonnement aérien d'une bulle d'énergie qui se déploie */
+ room:()=>{tone(220,880,.7,"sine",.05);tone(223,886,.7,"sine",.04);tone(1320,1980,.5,"sine",.03,.2);tone(2640,2640,.5,"sine",.015,.35);tone(1760,1760,.45,"sine",.03,.55)},
+ /* Haki des rois : détonation sourde, crépitement de foudre noire, puis silence */
+ haki:()=>{tone(60,34,.28,"sine",.32);noi(.12,.22,1400,0,.8,"lowpass");noi(.04,.2,4200,0,2,"highpass");for(let i=0;i<6;i++)tone(120+rnd()*1500,60+rnd()*400,.03,"sawtooth",.05,i*.018)},
+ /* Haki de l'armement : tintement métallique lourd et cristallin */
+ armament:()=>{tone(1175,1175,.7,"triangle",.07);tone(1760,1760,.6,"sine",.05);tone(2349,2349,.5,"sine",.03,.02);tone(3520,3520,.4,"sine",.02,.03);noi(.05,.12,6000,0,3,"highpass");tone(150,90,.14,"triangle",.1)},
+ /* Sabre : sifflement tranchant, puis écho métallique vibrant */
+ slash:()=>{noi(.1,.12,6000,0,2,"highpass");tone(2800,5400,.09,"sine",.05);tone(1320,1320,.8,"sine",.05,.1);tone(1980,1980,.6,"sine",.03,.1);tone(2640,2640,.5,"sine",.02,.12)},
+ /* Soru : aspiration d'air ultra-rapide « shhhwoop » */
+ soru:()=>{noi(.15,.16,6000,0,1.2,"highpass");tone(900,200,.14,"sine",.08);tone(200,520,.07,"sine",.06,.14)},
+ /* Escargophone : « purupurupuru » nasillard, puis raccroché sec « gacha » */
+ puru:()=>{for(let i=0;i<4;i++){tone(660,700,.09,"sawtooth",.04,i*.22);tone(520,560,.09,"sawtooth",.04,i*.22+.11);tone(1320,1320,.05,"square",.012,i*.22)}},
+ gacha:()=>{noi(.02,.15,2500,0,4,"highpass");tone(900,500,.03,"square",.05);noi(.015,.1,1800,.05,4,"highpass")},
+ /* Coque du Thousand Sunny : grincement lourd et rythmé du bois */
+ creak:()=>{tone(80,60,.6,"sawtooth",.03);tone(85,125,.35,"sawtooth",.025,.2);noi(.5,.05,300,0,6,"bandpass");noi(.05,.1,900,.55,3)},
+ /* Boulet : explosion lourde en infra-basses, puis sifflement dans l'air */
+ cannon:()=>{noi(.5,.3,160,0,.7,"lowpass");tone(90,28,.6,"sine",.32);tone(55,25,.7,"sine",.2,.02);noi(.08,.12,1800,.06,1.5);tone(2400,600,.4,"sine",.025,.15)},
+ /* Yeux qui sortent des orbites : ressort « boing » */
+ eyepop:()=>{tone(150,900,.12,"sine",.1);tone(900,200,.25,"sine",.08,.12);tone(200,520,.12,"sine",.05,.34)},
+ /* Tintement aigu de prise de conscience */
+ ding:()=>{tone(2637,2637,.5,"sine",.09);tone(3951,3951,.35,"sine",.035);tone(1976,1976,.25,"triangle",.035,.08);noi(.04,.04,7000,0,3,"highpass")},
+ /* Fuite à petits pas rapides et glissants (Usopp, Chopper) */
+ run:()=>{for(let i=0;i<10;i++){noi(.035,.1,1500+(i%2)*600,i*.055,2);tone(1300+(i%3)*200,1100,.02,"sine",.012,i*.055)}},
+ wood:()=>{noi(.05,.12,1100,0,3);tone(220,130,.05,"triangle",.07)},
+ horn:()=>{tone(110,104,1.1,"sawtooth",.045);tone(55,52,1.1,"triangle",.1);tone(165,156,1,"triangle",.04);[[1500,2200,.12,1.3],[2200,1400,.18,1.42],[1700,2500,.1,1.75],[2500,1600,.15,1.85]].forEach(([a,b,d,t])=>tone(a,b,d,"sine",.05,t))},
+ paper:()=>{noi(.2,.12,5000,0,.8,"highpass");tone(880,880,.9,"sine",.1,.2);tone(1760,1760,.6,"sine",.04,.2);tone(880,880,.8,"sine",.08,.6)},
+ /* victoire : tintement d'armement puis trois « ding » ascendants */
+ fanfare:()=>{OPS.armament();[[1568,.25],[2093,.4],[2637,.55]].forEach(([f,t])=>{tone(f,f,.35,"sine",.07,t);tone(f*1.5,f*1.5,.25,"sine",.02,t)})},
+ coin:()=>OPS.ding()
+};
 const sfx={
- ok:()=>{if(OP()){tone(988,988,.08,"square",.07);tone(1319,1319,.3,"square",.07,.08);tone(1760,1760,.25,"triangle",.06,.16)}else{tone(520,780,.16,"triangle",.16);tone(780,1040,.18,"triangle",.13,.1)}},
- ko:()=>tone(260,140,.3,"sawtooth",.13),
- click:()=>tone(340,300,.06,"sine",.05),
- puru:()=>{for(let i=0;i<6;i++)tone(i%2?820:700,i%2?820:700,.07,"square",.05,i*.09)},
- gacha:()=>{tone(180,90,.08,"square",.08);tone(120,70,.1,"square",.08,.09)},
- boing:()=>tone(180,620,.28,"sine",.1),
- win:()=>[523,659,784,1047].forEach((f,i)=>tone(f,f*1.02,.22,"triangle",.14,i*.12))
+ ok:()=>{if(OP())OPS.ding();else{tone(520,780,.16,"triangle",.16);tone(780,1040,.18,"triangle",.13,.1)}},
+ ko:()=>{if(OP())OPS.gura();else tone(260,140,.3,"sawtooth",.13)},
+ click:()=>{if(OP())OPS.wood();else tone(340,300,.06,"sine",.05)},
+ puru:()=>OPS.puru(),
+ gacha:()=>OPS.gacha(),
+ boing:()=>{if(OP())OPS.gomu();else tone(180,620,.28,"sine",.1)},
+ win:()=>{if(OP())OPS.fanfare();else[523,659,784,1047].forEach((f,i)=>tone(f,f*1.02,.22,"triangle",.14,i*.12))},
+ horn:()=>OPS.horn(),
+ wanted:()=>{OPS.slash();setTimeout(OPS.paper,260)},
+ logia:()=>OPS.logia(),room:()=>OPS.room(),haki:()=>OPS.haki(),armament:()=>OPS.armament(),
+ slash:()=>OPS.slash(),soru:()=>OPS.soru(),creak:()=>OPS.creak(),cannon:()=>OPS.cannon(),
+ eyepop:()=>OPS.eyepop(),ding:()=>OPS.ding(),run:()=>OPS.run()
 };
 
 /* fissure SVG aléatoire (réponse fausse) */
@@ -41,12 +95,12 @@ function toast(m){
  let c=$("toasts");if(!c){c=document.createElement("div");c.id="toasts";document.body.appendChild(c)}
  const t=document.createElement("div");t.className="toast";t.textContent=m;c.appendChild(t);if(OP())setTimeout(sfx.puru,350);setTimeout(()=>{t.remove();if(OP())sfx.gacha()},3000);
 }
-function fxAch(k,label){if(st.ach.includes(k))return;st.ach.push(k);save();toast("🏆 Succès débloqué : "+label)}
+function fxAch(k,label){if(st.ach.includes(k))return;st.ach.push(k);save();toast("🏆 Succès débloqué : "+label);if(OP())setTimeout(sfx.armament,1000)}
 function fxDone(good,total){
- sfx.win();if(OP())setTimeout(()=>toast("🥤 SUUUUPER !"),1300);
+ sfx.win();if(OP()){setTimeout(()=>toast("🥤 SUUUUPER !"),1300);if(good==total)setTimeout(sfx.logia,900);else if(good<total/2)setTimeout(sfx.haki,900)}
  if(good==total){confetti();fxAch("perfect","💯 Sans faute")}else toast((OP()?"🏴‍☠️ Butin : ":"🏁 Bilan : ")+good+"/"+total);
 }
-function fxEnter(){const m=$("main");m.classList.remove("enter");void m.offsetWidth;m.classList.add("enter")}
+function fxEnter(){if(OP())sfx.soru();const m=$("main");m.classList.remove("enter");void m.offsetWidth;m.classList.add("enter")}
 function confetti(){
  if(REDUCE)return;
  const c=document.createElement("canvas");c.className="fxc";c.width=innerWidth;c.height=innerHeight;document.body.appendChild(c);
@@ -107,9 +161,9 @@ document.body.insertAdjacentHTML("beforeend",'<button id="topbtn" title="Retour 
 $("topbtn").onclick=()=>{sfx.boing();scrollTo({top:0,behavior:"smooth"});const b=$("topbtn");b.classList.remove("gomu");void b.offsetWidth;b.classList.add("gomu")};
 addEventListener("scroll",()=>$("topbtn").classList.toggle("show",scrollY>200));
 document.querySelector("aside").insertAdjacentHTML("beforeend",'<span id="pnd" title="?">🐼</span>');
-$("pnd").onclick=()=>{fxAch("pandaman","🐼 Pandaman retrouvé");sfx.win()};
+$("pnd").onclick=()=>{fxAch("pandaman","🐼 Pandaman retrouvé");sfx.eyepop();setTimeout(sfx.run,350)};
 function fxWanted(t,n){
- if(!OP())return;sfx.win();
+ if(!OP())return;sfx.wanted();
  const p=document.createElement("div");p.className="poster";
  p.innerHTML=`<b>WANTED</b><i>${esc(t)}</i><u>PRIME : ${Math.round(n*5e6).toLocaleString("fr-FR")} ฿</u><small>Note : ${fmt(n)}/20</small>`;
  p.onclick=()=>p.remove();document.body.appendChild(p);setTimeout(()=>p.remove(),2800);

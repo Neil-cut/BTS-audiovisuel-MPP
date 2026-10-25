@@ -15,9 +15,9 @@ const setTh=t=>{
 if(TH.includes(st.theme))setTh(st.theme);
 $("theme").onclick=()=>{
  const c=document.documentElement.dataset.theme||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),n=TH[(TH.indexOf(c)+1)%TH.length];
- setTh(n);if(n=="onepiece"||n=="zelda")sfx.win();
+ setTh(n);if(n=="onepiece"){sfx.horn();setTimeout(sfx.creak,2000)}else if(n=="zelda")sfx.win();
 };
 $("lvl").textContent=lv();
-$("start").onclick=()=>{$("intro").style.display="none";go()};
+$("start").onclick=()=>{if(OP())sfx.cannon();$("intro").style.display="none";go()};
 $("logo").onclick=()=>{$("lvl").textContent=lv();$("intro").style.display="grid"};
 go();
