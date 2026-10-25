@@ -40,3 +40,10 @@ summary{cursor:pointer}.les h2{font-size:1.15rem}.les h3{font-size:.95rem;color:
 .rdp table{font-size:.88em}
 .rdd{display:flex;flex-wrap:wrap;justify-content:center}.rdd .dot{width:14px;height:14px;margin:3px}
 @media(prefers-reduced-motion:no-preference){.rdr{animation:rdin .18s ease-out}@keyframes rdin{from{opacity:0;transform:scale(.985)}to{opacity:1;transform:none}}}
+
+/* ---- bouton « Retour au cours » (cours.js), affiché pendant le quiz ---- */
+.rdback{position:fixed;left:50%;bottom:max(16px,env(safe-area-inset-bottom));transform:translateX(-50%);z-index:60;display:flex;gap:8px;align-items:stretch;max-width:94vw}
+.rdback .btn{box-shadow:0 6px 22px rgba(0,0,0,.35)}
+.rdback .btn.p{display:flex;flex-direction:column;align-items:flex-start;line-height:1.25;padding:8px 18px}
+.rdback small{font-size:.75rem;opacity:.85;font-weight:400}
+@media(prefers-reduced-motion:no-preference){.rdback{animation:rdbin .25s ease-out}@keyframes rdbin{from{opacity:0;transform:translate(-50%,14px)}to{opacity:1;transform:translateX(-50%)}}}

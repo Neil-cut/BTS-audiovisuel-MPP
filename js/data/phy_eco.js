@@ -116,3 +116,16 @@ Bq("Une facture entre professionnels doit mentionner :",["Uniquement le prix","N
 Bq("Le seuil de rentabilité correspond :",["Au chiffre d’affaires pour lequel le résultat est nul","Au bénéfice maximal","Au capital minimal","À la trésorerie disponible"],0,"Au-delà, l’entreprise gagne de l’argent.","Gestion"),
 Bq("L’annexe 8 de l’assurance chômage concerne :",["Les techniciens du spectacle","Les artistes","Les salariés du public","Les retraités"],0,"L’annexe 10 concerne les artistes.","Droit du travail"),
 Bq("Le taux normal de TVA en France est de :",["5,5 %","10 %","20 %","25 %"],2,"Taux réduits : 10 %, 5,5 % et 2,1 %.","Gestion")]));
+
+/* chapitres (proposition validée par l'utilisateur ; indices à partir de 0 dans LESSONS[id]) */
+CHAPTERS.phy=[
+{t:"📚 1. Optique et lumière",d:"Lentilles, focale, photométrie et caractéristiques de la lumière.",l:[0,1]},
+{t:"📚 2. Électricité",d:"Électricité sur un tournage ou en régie.",l:[2]},
+{t:"📚 3. Acoustique et numérisation",d:"Son, décibels, salles et numérisation du signal.",l:[3,4]},
+{t:"📚 4. Chimie appliquée",d:"Piles, supports et sécurité.",l:[5]}
+];
+CHAPTERS.eco=[
+{t:"📚 1. Le secteur audiovisuel",d:"Paysage, financement et production, de l’idée à la diffusion.",l:[0,1]},
+{t:"📚 2. Propriété intellectuelle et droit à l’image",d:"Droit d’auteur, droit à l’image, données personnelles et contrats.",l:[2,3]},
+{t:"📚 3. L’entreprise et le travail",d:"Formes juridiques, gestion, droit du travail et protection sociale.",l:[4,5]}
+];

@@ -28,29 +28,30 @@ JS (ordre) :
   22. js/app.js
 ATTENTION : même nom dans des dossiers différents : banks.js
 
-## css/base.css (9 lignes, 0 Ko) : variables de couleurs, thèmes clair/sombre, reset
+## css/base.css (21 lignes, 6 Ko) : variables de couleurs, thèmes clair/sombre, reset
   thèmes : dark, light
-  variables : --bg --card --tx --mu --bd --ac --ok --ko --pr
+  variables : --bg --card --tx --mu --bd --ac --ok --ko --pr --rdd --rdl
+  sections : L10 fond du lecteur de cours, thème sombre : halos violet et ble | L16 fond du lecteur de cours, thème clair : repères de mise en p
 
 ## css/layout.css (17 lignes, 1 Ko) : structure générale : grille, barre latérale, zone principale
   sections : L10 réorganisation des matières par glisser-déposer
 
-## css/components.css (43 lignes, 4 Ko) : composants réutilisables : cartes, onglets, boutons, quiz, tableaux, leçons
-  sections : L21 liste des chapitres, aide-mémoire et lecteur de cours plein  | L35 la « page » : feuille centrée, texte grand, marges intérieur
+## css/components.css (50 lignes, 4 Ko) : composants réutilisables : cartes, onglets, boutons, quiz, tableaux, leçons
+  sections : L21 liste des chapitres, aide-mémoire et lecteur de cours plein  | L35 la « page » : feuille centrée, texte grand, marges intérieur | L44 bouton « Retour au cours » (cours.js), affiché pendant le qu
 
 ## css/intro.css (8 lignes, 0 Ko) : écran d’accueil (spawn)
 
 ## css/fx.css (28 lignes, 2 Ko) : animations, fissures, toasts, fond animé, confettis
 
-## css/onepiece.css (76 lignes, 8 Ko) : thème One Piece : mer profonde, or des trésors, affiches de prime
+## css/onepiece.css (78 lignes, 35 Ko) : thème One Piece : mer profonde, or des trésors, affiches de prime
   thèmes : onepiece
   variables : --bg --card --tx --mu --bd --ac --ok --ko --pr
-  sections : L15 version enrichie : navire en bois, affiches WANTED, parchemi | L35 détails cachés et clins d'œil | L56 navire pirate | L57 le bateau est dans la couche du fond : entre la vague arrièr | L64 lecteur de cours plein écran (cours.js) : pont de bois, page
+  sections : L15 version enrichie : navire en bois, affiches WANTED, parchemi | L35 détails cachés et clins d'œil | L56 navire pirate | L57 le bateau est dans la couche du fond : entre la vague arrièr | L64 lecteur de cours plein écran (cours.js) : pont de bois, page | L74 fond du lecteur de cours : carte marine, rose des vents, vag
 
-## css/zelda.css (169 lignes, 13 Ko) : thème Zelda « Forêt Kokiri » (Ocarina of Time) : vert mousse, écorce, or vieilli, lueur de fée cyan
+## css/zelda.css (175 lignes, 29 Ko) : thème Zelda « Forêt Kokiri » (Ocarina of Time) : vert mousse, écorce, or vieilli, lueur de fée cyan
   thèmes : zelda
   variables : --bg --card --tx --mu --bd --ac --ok --ko --pr --cy --leather --bev --c
-  sections : L7 fond : veines de bois très discrètes (au-dessus du canvas, s | L10 barre latérale : écorce sombre, filet or vieilli | L16 boutons : cuir (secondaire) et vert tunique (action principa | L20 effet magique : lueur de fée cyan au survol | L24 cartes : olive, cadre à double filet doré | L29 titres : séparateur pointillé doré (lucioles) + Triforce | L32 barres de progression : vert et cyan, avec Navi au bout | L37 leçons : parchemin | L43 écran d'accueil : sous-bois et rayons de lumière | L48 bouton retour en haut : Triforce | L52 Navi : fée lumineuse qui suit le curseur (créée par zelda.js | L61 rubis qui s'envolent à chaque bonne réponse | L72 1. palette triadique : émeraude / rubis / saphir pour les ma | L79 2-3. cœurs pixel-art + compteur de rubis + invincibilité (cl | L88 4. menu de pause : glissement horizontal à chaque changement | L92 5. dialogues à coins biseautés, mots clés en couleur | L101 6. jauge de magie verte segmentée | L106 7. réticule Z-Targeting jaune qui se resserre au survol | L116 8. typographie : Cinzel (titres) + Press Start 2P (chiffres) | L124 10. coffre : le temps se fige, l'objet est brandi | L133 13. textures : écorce de bois et parchemin taché | L137 14. papillon -> fée | L142 12. Arwing (code Konami) | L149 15. Bois Perdus : brume | L153 lecteur de cours plein écran (cours.js) : écorce, page en pa
+  sections : L7 fond : veines de bois très discrètes (au-dessus du canvas, s | L10 barre latérale : écorce sombre, filet or vieilli | L16 boutons : cuir (secondaire) et vert tunique (action principa | L20 effet magique : lueur de fée cyan au survol | L24 cartes : olive, cadre à double filet doré | L29 titres : séparateur pointillé doré (lucioles) + Triforce | L32 barres de progression : vert et cyan, avec Navi au bout | L37 leçons : parchemin | L43 écran d'accueil : sous-bois et rayons de lumière | L48 bouton retour en haut : Triforce | L52 Navi : fée lumineuse qui suit le curseur (créée par zelda.js | L61 rubis qui s'envolent à chaque bonne réponse | L72 1. palette triadique : émeraude / rubis / saphir pour les ma | L79 2-3. cœurs pixel-art + compteur de rubis + invincibilité (cl | L88 4. menu de pause : glissement horizontal à chaque changement | L92 5. dialogues à coins biseautés, mots clés en couleur | L101 6. jauge de magie verte segmentée | L106 7. réticule Z-Targeting jaune qui se resserre au survol | L116 8. typographie : Cinzel (titres) + Press Start 2P (chiffres) | L124 10. coffre : le temps se fige, l'objet est brandi | L133 13. textures : écorce de bois et parchemin taché | L137 14. papillon -> fée | L142 12. Arwing (code Konami) | L149 15. Bois Perdus : brume | L153 lecteur de cours plein écran (cours.js) : écorce, page en pa | L167 fond du lecteur de cours : forêt Kokiri, motifs géométriques
 
 ## css/revision.css (7 lignes, 0 Ko) : onglet « À réviser » (répétition espacée, questions ratées)
 
@@ -70,9 +71,10 @@ Thèmes CSS présents : dark, light, onepiece, zelda
   constantes/état : COURS@3, LESSONS@11
   LESSONS : mon
 
-## js/data/courses_plus.js (118 lignes, 63 Ko) : chapitres supplémentaires (COURS) et leçons détaillées (LESSONS, plusieurs par matière)
+## js/data/courses_plus.js (129 lignes, 64 Ko) : chapitres supplémentaires (COURS) et leçons détaillées (LESSONS, plusieurs par matière)
   fonctions : les@3
-  sections : L6 TES – Équipements vidéo | L24 Image fixe | L39 Analyse filmique | L59 Montage | L76 Photoshop & After Effects | L90 Anglais | L104 Français
+  constantes/état : CHAPTERS@7
+  sections : L6 CHAPTERS[id] : chapitres du programme ; chaque chapitre regr | L9 TES – Équipements vidéo | L27 Image fixe | L42 Analyse filmique | L62 chapitres du programme (référentiel « Culture audiovisuelle  | L70 Montage | L87 Photoshop & After Effects | L101 Anglais | L115 Français
   COURS enrichis : adobe, ana, ang, fr, img, mon, tes
   LESSONS : adobe, ana, ang, fr, img, mon, tes
 
@@ -98,10 +100,10 @@ Thèmes CSS présents : dark, light, onepiece, zelda
 ## js/core/utils.js (8 lignes, 0 Ko) : petites fonctions partagées : esc, $, moyenne, formats, niveau XP
   fonctions : esc@3, avg@5, fmt@6, lv@7
 
-## js/core/fx.js (162 lignes, 12 Ko) : effets : sons synthétisés, fissures, toasts, succès, confettis, fond animé
-  fonctions : OP@5, actx@7, tone(f1,f2,d,type,v,delay)@8, noi(d,v,fc,delay,q,type)@16, crack()@48, toast(m)@62, fxAch(k,label)@66, fxDone(good,total)@67, fxEnter()@71, confetti()@72, sndLabel@87, berry()@94, fxPulse()@99, jar()@126, fxWanted(t,n)@133
-  constantes/état : REDUCE@4, AC@6, OPS@26, sfx@35, pulse@92, PX@93, JM@124, JR@125
-  sections : L15 bruit filtré (coups, froissement, craquement) : d = durée, v | L25 sons du thème One Piece (appelés par sfx seulement quand OP( | L47 fissure SVG aléatoire (réponse fausse) | L61 notifications, succès, fin de niveau | L85 bouton son + clic sonore global | L91 fond animé : vagues + points, pulsation à chaque bonne répon | L123 One Piece : jargon pirate, Pandaman caché, chapeau de retour | L140 One Piece : navire pirate qui navigue en bas de l'écran (rem
+## js/core/fx.js (194 lignes, 15 Ko) : effets : sons synthétisés, fissures, toasts, succès, confettis, fond animé
+  fonctions : OP@5, actx@7, tone(f1,f2,d,type,v,delay)@8, noi(d,v,fc,delay,q,type)@16, crack()@80, toast(m)@94, fxAch(k,label)@98, fxDone(good,total)@99, fxEnter()@103, confetti()@104, sndLabel@119, berry()@126, fxPulse()@131, jar()@158, fxWanted(t,n)@165
+  constantes/état : REDUCE@4, AC@6, rnd@26, OPS@27, sfx@64, pulse@124, PX@125, JM@156, JR@157
+  sections : L15 bruit filtré (coups, froissement, craquement) : d = durée, v | L25 sons du thème One Piece (appelés par sfx seulement quand OP( | L79 fissure SVG aléatoire (réponse fausse) | L93 notifications, succès, fin de niveau | L117 bouton son + clic sonore global | L123 fond animé : vagues + points, pulsation à chaque bonne répon | L155 One Piece : jargon pirate, Pandaman caché, chapeau de retour | L172 One Piece : navire pirate qui navigue en bas de l'écran (rem
 
 ## js/ui/nav.js (74 lignes, 4 Ko) : barre latérale, navigation et ordre des matières (glisser-déposer, sauvegardé dans st.order)
   fonctions : SO@5, setOrder(ids,focus)@6, nav()@10, dragNav()@20, go()@73
@@ -114,10 +116,10 @@ Thèmes CSS présents : dark, light, onepiece, zelda
 ## js/ui/subject.js (10 lignes, 0 Ko) : page d’une matière et ses onglets
   fonctions : subj()@3
 
-## js/features/cours.js (94 lignes, 4 Ko) : onglet Cours : chapitres détaillés (LESSONS) lus en plein écran, paginés, + aide-mémoire repliable (COURS)
-  fonctions : toggleLes()@3, rdrPages(h)@9, rdrLoad(i,p)@26, rdrShow()@32, rdrPage(k)@49, rdrGo(d)@51, rdrKey(e)@59, rdrOpen(i)@65, rdrClose()@81, cours(s)@88
-  constantes/état : RDR@6
-  sections : L5 Lecteur plein écran | L8 Découpe un chapitre en pages : une page par titre <h3>, les  | L87 Onglet Cours
+## js/features/cours.js (143 lignes, 6 Ko) : onglet Cours : chapitres détaillés (LESSONS) lus en plein écran, paginés, + aide-mémoire repliable (COURS)
+  fonctions : toggleLes()@3, rdrPages(h)@9, rdrLoad(i,p)@26, rdrShow()@32, rdrPage(k)@49, rdrGo(d)@51, rdrKey(e)@59, rdrOpen(i)@65, rdrClose()@82, rdrToQuiz()@90, rdrBackSync()@95, rdrBackHide()@104, rdrBack()@105, crsList(id,n)@115, crsMode(m)@124, crsOpen(c)@125, crsBack()@126, cours(s)@127
+  constantes/état : RDR@6, RDB@89, CV@114
+  sections : L5 Lecteur plein écran | L8 Découpe un chapitre en pages : une page par titre <h3>, les  | L88 Retour au cours depuis le quiz : mémorise chapitre et page,  | L113 Onglet Cours : « Chapitres » (programme, avec leurs leçons) 
 
 ## js/features/exercices.js (8 lignes, 0 Ko) : onglet Exercices et ses sous-onglets
   fonctions : exo(s)@3

@@ -10,6 +10,7 @@ function setOrder(ids,focus){
 function nav(){
  $("nav").innerHTML=`<button class="${cur=="home"?"on":""}" data-id="home">🏠 Tableau de bord</button>`
  +SO().map(s=>`<button class="${cur==s.id?"on":""}" data-id="${s.id}" title="Glisse pour réorganiser (ou Alt + flèches)">${s.i} ${s.n}</button>`).join("")
+ +`<button class="${cur=="cine"?"on":""}" data-id="cine">🎞️ Ciné-club</button>`
  +`<small class="navx mu">↕ Glisse les matières pour les réorganiser${st.order&&st.order.length?` · <a href="#" id="nreset">↺ ordre par défaut</a>`:""}</small>`;
  $("nav").querySelectorAll("button").forEach(b=>b.onclick=()=>{if(performance.now()-LASTDRAG<400)return;cur=b.dataset.id;tab="cours";go()});
  const r=$("nreset");if(r)r.onclick=e=>{e.preventDefault();delete st.order;save();nav();if(cur=="home")home()};
@@ -18,7 +19,7 @@ function nav(){
 
 /* glisser-déposer au pointeur : souris (dès 5 px de déplacement) et tactile (appui long 0,3 s) ; Alt + flèches au clavier */
 function dragNav(){
- const box=$("nav"),items=()=>[...box.querySelectorAll("button[data-id]:not([data-id=home])")];
+ const box=$("nav"),items=()=>[...box.querySelectorAll("button[data-id]:not([data-id=home]):not([data-id=cine])")];
  items().forEach(b=>{
   b.onkeydown=e=>{
    if(!e.altKey)return;
@@ -70,4 +71,4 @@ function dragNav(){
  });
 }
 
-function go(){nav();cur=="home"?home():subj();window.scrollTo(0,0);fxEnter()}
+function go(){nav();cur=="home"?home():cur=="cine"?cine():subj();window.scrollTo(0,0);fxEnter()}
