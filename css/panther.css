@@ -1,0 +1,63 @@
+/* css/panther.css — thème « Panthère Rose » : jazz noir 1940, rouge brique dominant, rose, noir, crème, braise orange */
+
+:root[data-theme="panther"]{--bg:#9A1A0C;--card:#1d0709;--tx:#F7E8D0;--mu:#E9C9B5;--bd:#D9B99A;--ac:#F08CA0;--ok:#8fdc8f;--ko:#ff5a4a;--pr:255,214,190;--em:255,154,60;color-scheme:dark}
+[data-theme="panther"] h1,[data-theme="panther"] h2,[data-theme="panther"] h3{font-family:"Bodoni MT",Didot,"Playfair Display",Georgia,"Times New Roman",serif;letter-spacing:.02em}
+[data-theme="panther"] h2{text-shadow:0 3px 0 rgba(0,0,0,.4)}
+
+/* fond : persiennes de lumière + grain de pellicule (au-dessus du canvas, sous le contenu) */
+[data-theme="panther"] body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:repeating-linear-gradient(115deg,rgba(255,230,200,.07) 0 36px,transparent 36px 96px)}
+[data-theme="panther"] body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.14;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E")}
+
+/* barre latérale : noir profond, filet crème */
+[data-theme="panther"] aside{background:#120406;border-right:2px solid rgba(217,185,154,.55);box-shadow:inset -3px 0 0 rgba(0,0,0,.4)}
+[data-theme="panther"] aside small{color:#d9b99a}
+[data-theme="panther"] nav button:hover{background:rgba(var(--em),.13);text-shadow:0 0 8px rgba(var(--em),.8)}
+[data-theme="panther"] nav button.on{background:var(--ac);color:#1a0508;font-weight:700}
+
+/* boutons : noir à filet crème (secondaire), rose panthère (principal) */
+[data-theme="panther"] .tabs button,[data-theme="panther"] .btn{background:#120406;color:var(--tx);border:1px solid var(--bd);border-radius:4px}
+[data-theme="panther"] .tabs button.on,[data-theme="panther"] .btn.p{background:var(--ac);color:#1a0508;border-color:var(--ac);font-weight:700;box-shadow:0 0 10px rgba(240,140,160,.45)}
+
+/* survol : lueur de braise (le bout du cigare) */
+[data-theme="panther"] .btn:hover,[data-theme="panther"] .tabs button:hover,[data-theme="panther"] .stat:hover,[data-theme="panther"] .opt:not(:disabled):hover{border-color:#FF9A3C;box-shadow:0 0 14px 2px rgba(var(--em),.5)}
+[data-theme="panther"] textarea:focus,[data-theme="panther"] input:focus{outline:none;border-color:#FF9A3C;box-shadow:0 0 10px rgba(var(--em),.45)}
+
+/* cartes : noir bordeaux, double filet crème */
+[data-theme="panther"] .card{border:1px solid var(--bd);border-radius:6px;box-shadow:inset 0 0 0 4px var(--card),inset 0 0 0 5px rgba(217,185,154,.4),0 6px 18px rgba(0,0,0,.4)}
+[data-theme="panther"] .stat{border-left:6px solid var(--c,var(--ac));font-family:"Bodoni MT",Didot,Georgia,serif}
+[data-theme="panther"] .opt{background:#2a0d10;border:1px solid rgba(217,185,154,.4)}
+
+/* titres : filet crème avec losange central (style « 1940's JAZZ ») */
+[data-theme="panther"] main>h2::after{content:"◆";display:block;text-align:center;color:var(--tx);font-size:.8rem;line-height:1;margin-top:8px;background:linear-gradient(var(--bd),var(--bd)) left center/calc(50% - 16px) 1px no-repeat,linear-gradient(var(--bd),var(--bd)) right center/calc(50% - 16px) 1px no-repeat}
+
+/* barres de progression : rose vers rouge, saxo au bout */
+[data-theme="panther"] .bar{background:#120406;border:1px solid var(--bd);overflow:visible;height:10px}
+[data-theme="panther"] .bar i{position:relative;background:linear-gradient(90deg,#F08CA0,#d7261b)}
+[data-theme="panther"] .bar i::after{content:"🎷";position:absolute;right:-9px;top:-10px;font-size:15px}
+
+/* leçons : papier crème, titres rouge brique */
+[data-theme="panther"] .les{background:#F3E6CC;color:#2a0a0c;border-color:#8a6d4a}
+[data-theme="panther"] .les h3{color:#9A1A0C}
+[data-theme="panther"] .les code{background:#e6d3ae;color:#2a0a0c;border-color:#8a6d4a}
+[data-theme="panther"] .les .note{background:#ecdcb8;color:#2a0a0c;border-left-color:#9A1A0C}
+
+/* écran d'accueil : fond rouge à spot de lumière, silhouette de fedora en ombre */
+[data-theme="panther"] #intro{background:radial-gradient(ellipse at 50% 20%,#c4301a 0%,#9A1A0C 55%,#4a0905 100%);background-size:auto;animation:none}
+[data-theme="panther"] #intro .hero{position:relative;z-index:1}
+[data-theme="panther"] #intro .hero h1{font-family:"Bodoni MT",Didot,"Playfair Display",Georgia,serif;color:#F7E8D0;text-shadow:0 4px 0 rgba(0,0,0,.45)}
+[data-theme="panther"] #intro .rec{color:#F7E8D0;animation:none;letter-spacing:.3em}
+[data-theme="panther"] #intro::after{content:"";position:absolute;right:-30px;bottom:-10px;width:min(46vw,480px);aspect-ratio:5/3;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 120'%3E%3Cpath d='M8 88C8 78 40 70 62 68C60 40 72 20 100 20C128 20 140 40 138 68C160 70 192 78 192 88C192 102 150 108 100 108C50 108 8 102 8 88Z' fill='black'/%3E%3Cpath d='M62 68Q100 76 138 68' stroke='%239A1A0C' stroke-width='7' fill='none'/%3E%3C/svg%3E") center/contain no-repeat;opacity:.5;transform:rotate(-8deg);pointer-events:none}
+
+/* bouton retour en haut : chapeau */
+[data-theme="panther"] #topbtn.show{display:block;position:fixed;right:18px;bottom:18px;z-index:50;width:52px;height:52px;border-radius:50%;border:2px solid var(--bd);background:var(--ac);font-size:0;cursor:pointer;box-shadow:0 0 14px rgba(var(--em),.45)}
+[data-theme="panther"] #topbtn.show::after{content:"🎩";font-size:24px}
+
+/* fumée de cigarette qui monte derrière le contenu (créée par panther.js) */
+.smoke{display:none;position:fixed;bottom:-160px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(255,235,220,.5),transparent 68%);filter:blur(16px);opacity:0;pointer-events:none;z-index:0;animation:smoke 18s linear infinite}
+[data-theme="panther"] .smoke{display:block}
+@keyframes smoke{0%{transform:translate(0,0) scale(.6);opacity:0}15%{opacity:.14}100%{transform:translate(60px,-115vh) scale(1.8);opacity:0}}
+@media(prefers-reduced-motion:reduce){.smoke{display:none!important}}
+
+/* notes de jazz qui s'envolent à chaque bonne réponse */
+.jazznote{position:fixed;z-index:400;pointer-events:none;color:#F08CA0;font:900 1.3rem Georgia,serif;text-shadow:0 2px 0 rgba(0,0,0,.6);animation:jazznote 1s ease-out forwards}
+@keyframes jazznote{to{transform:translateY(-70px) rotate(12deg);opacity:0}}
