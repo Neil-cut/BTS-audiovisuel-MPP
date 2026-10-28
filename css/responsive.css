@@ -2,4 +2,4 @@
 
 @media(max-width:720px){.app{grid-template-columns:1fr}aside{position:static;height:auto}nav{display:flex;overflow-x:auto;gap:4px}nav button{white-space:nowrap;width:auto}.row{grid-template-columns:1fr 1fr}}
 @media(max-width:720px){.navx{display:none}}
-@media(max-width:720px){.rdb{padding:4px 10px}.rdp{padding:1.1em;font-size:1.05rem;border-radius:10px;min-height:50vh}.rdh,.rdf{padding:6px 10px;gap:8px}.rdt{font-size:1rem}.rdh .btn,.rdf .btn{padding:6px 12px;font-size:.9rem}.rdd{display:none}}
+@media(max-width:720px){.rdb{padding:4px 10px}.rdp{padding:1.1em;font-size:calc(1.05rem * var(--rdz,1));border-radius:10px;min-height:50vh}.rdh,.rdf{padding:6px 10px;gap:8px}.rdt{font-size:1rem}.rdh .btn,.rdf .btn{padding:6px 12px;font-size:.9rem}.rdtx,.rdl{display:none}.rdza{gap:4px}.rdza .btn{padding:6px 8px;min-width:2.2em}.rdd{display:none}}

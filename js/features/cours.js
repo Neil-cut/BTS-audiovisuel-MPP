@@ -6,6 +6,89 @@ function toggleLes(){tab="exo";sub="quiz";subj()}
 const noNum=t=>t.replace(/^(📖\s*)\d+\.\s*/,"$1");
 const RDR={ls:[],i:0,p:0,pg:[],x:0,y:0,mask:""};
 
+/* ---- Taille du texte du lecteur : paliers de 10 %, mémorisée (clé localStorage « btsrdz ») ---- */
+const RZ={min:-3,max:6};
+let RZL=0;try{RZL=Math.max(RZ.min,Math.min(RZ.max,parseInt(localStorage.getItem("btsrdz"))||0))}catch(e){}
+function rdrZoomApply(){
+ const o=$("rdr");if(!o)return;
+ o.style.setProperty("--rdz",(1+RZL/10).toFixed(2));
+ const m=o.querySelector(".rdzm"),p=o.querySelector(".rdzp"),r=o.querySelector(".rdzr");
+ if(m)m.disabled=RZL<=RZ.min;
+ if(p)p.disabled=RZL>=RZ.max;
+ if(r)r.title="Taille du texte : "+Math.round((1+RZL/10)*100)+" % (cliquer pour revenir à 100 %)";
+}
+/* ---- Sommaire latéral : leçons de la liste ouverte, pages de la leçon courante ; ouvert par défaut sur grand écran (≥ 1100 px, préférence « btsrds »), tiroir sur petit écran ---- */
+let RSW=true;try{RSW=localStorage.getItem("btsrds")!=="0"}catch(e){}
+let RSN=false;
+const rdrWide=()=>window.innerWidth>=1100;
+function rdrTitles(pg){
+ return pg.map((h,k)=>{const d=document.createElement("div");d.innerHTML=h;const t=d.querySelector("h3");return t?t.textContent.trim():(k==0?"Introduction":"Page "+(k+1))});
+}
+function rdrTocApply(){
+ const o=$("rdr");if(!o)return;
+ const on=rdrWide()?RSW:RSN;
+ o.classList.toggle("rds-on",on);
+ const b=o.querySelector(".rdst");
+ if(b){b.setAttribute("aria-expanded",on?"true":"false");b.classList.toggle("p",on)}
+}
+function rdrToc(){
+ const o=$("rdr"),R=RDR,box=o&&o.querySelector(".rds");if(!box)return;
+ const keep=box.scrollTop;
+ let h='<div class="rdsh">Sommaire</div>';
+ R.ls.forEach((l,j)=>{
+  const t=esc(noNum(l[0]).replace(/^📖\s*/,""));
+  h+=`<button class="rdsk${j==R.i?" on":""}" onclick="rdrTocGo(${j},0)"${j==R.i?' aria-current="true"':""}>${t}</button>`;
+  if(j==R.i)(R.tt||[]).forEach((x,k)=>{h+=`<button class="rdsp${k==R.p?" on":""}" onclick="rdrTocGo(${j},${k})">${k+1}. ${esc(x)}</button>`});
+ });
+ box.innerHTML=h;box.scrollTop=keep;
+ const c=box.querySelector(".rdsp.on");
+ if(c){const t=c.offsetTop,bh=box.clientHeight;if(t<box.scrollTop+20)box.scrollTop=Math.max(0,t-20);else if(t+c.offsetHeight>box.scrollTop+bh-20)box.scrollTop=t+c.offsetHeight-bh+20}
+}
+function rdrTocGo(j,k){
+ if(!rdrWide()){RSN=false;rdrTocApply()}
+ if(j==RDR.i)rdrPage(k);else rdrLoad(j,k);
+}
+function rdrTocToggle(){
+ if(rdrWide()){RSW=!RSW;try{localStorage.setItem("btsrds",RSW?"1":"0")}catch(e){}}else RSN=!RSN;
+ rdrTocApply();
+}
+
+/* ---- Barre de progression de lecture : avancement dans toute la liste de leçons ouverte, repères entre les leçons, cliquable ---- */
+function rdrCounts(){const R=RDR;if(!R.cnt||R.cnt.length!=R.ls.length)R.cnt=R.ls.map(l=>rdrPages(l[1]).length);return R.cnt}
+function rdrProgress(){
+ const o=$("rdr"),R=RDR,bar=o&&o.querySelector(".rdpr");if(!bar)return;
+ const c=rdrCounts(),tot=c.reduce((a,b)=>a+b,0)||1;
+ let before=0;for(let j=0;j<R.i;j++)before+=c[j];
+ const pos=Math.min(tot,before+R.p+1),pct=Math.round(pos/tot*100);
+ bar.querySelector("i").style.width=(pos/tot*100)+"%";
+ bar.setAttribute("aria-valuenow",String(pct));
+ bar.title="Progression : page "+pos+" sur "+tot+" ("+pct+" %). Cliquer pour aller à un endroit.";
+ const key=c.join(",");
+ if(bar.dataset.t!==key){
+  bar.dataset.t=key;
+  bar.querySelectorAll("b").forEach(x=>x.remove());
+  let acc=0;
+  c.forEach((n,j)=>{if(j>0){const t=document.createElement("b");t.style.left=(acc/tot*100)+"%";bar.appendChild(t)}acc+=n});
+ }
+ const l=o.querySelector(".rdl");
+ if(l)l.textContent=R.ls.length>1?" · leçon "+(R.i+1)+" / "+R.ls.length:"";
+}
+function rdrProgressGo(e){
+ const bar=e.currentTarget,c=rdrCounts(),tot=c.reduce((a,b)=>a+b,0),r=bar.getBoundingClientRect();
+ if(!tot||!r.width)return;
+ let g=Math.min(tot-1,Math.max(0,Math.floor((e.clientX-r.left)/r.width*tot)));
+ for(let j=0;j<c.length;j++){
+  if(g<c[j]){if(j==RDR.i)rdrPage(g);else rdrLoad(j,g);return}
+  g-=c[j];
+ }
+}
+
+function rdrZoom(d){
+ RZL=d==0?0:Math.max(RZ.min,Math.min(RZ.max,RZL+d));
+ try{localStorage.setItem("btsrdz",String(RZL))}catch(e){}
+ rdrZoomApply();
+}
+
 /* Découpe un chapitre en pages : une page par titre <h3>, les pages trop courtes sont fusionnées. */
 function rdrPages(h){
  const d=document.createElement("div");d.innerHTML=h;
@@ -25,7 +108,7 @@ function rdrPages(h){
 }
 
 function rdrLoad(i,p){
- RDR.i=i;RDR.pg=rdrPages(RDR.ls[i][1]);
+ RDR.i=i;RDR.pg=rdrPages(RDR.ls[i][1]);RDR.tt=rdrTitles(RDR.pg);
  RDR.p=p<0?RDR.pg.length-1:p;
  rdrShow();
 }
@@ -45,6 +128,7 @@ function rdrShow(){
  pv.textContent=R.p==0&&R.i>0?"← Leçon précédente":"← Précédent";
  nx.disabled=lastPage&&lastCh;
  nx.textContent=lastPage&&!lastCh?"Leçon suivante →":"Suivant →";
+ rdrToc();rdrProgress();
  o.querySelector(".rdd").innerHTML=n>1&&n<=12?R.pg.map((_,k)=>`<button class="dot${k==R.p?" c":""}" onclick="rdrPage(${k})" aria-label="Page ${k+1}"></button>`).join(""):"";
 }
 
@@ -90,20 +174,25 @@ function rdrKey(e){
  if(e.key=="Escape")rdrClose();
  else if(e.key=="ArrowRight"||e.key=="PageDown"){e.preventDefault();rdrGo(1)}
  else if(e.key=="ArrowLeft"||e.key=="PageUp"){e.preventDefault();rdrGo(-1)}
+ else if(!e.ctrlKey&&!e.metaKey&&!e.altKey){if(e.key=="+"||e.key=="=")rdrZoom(1);else if(e.key=="-")rdrZoom(-1);else if(e.key=="0")rdrZoom(0);else if(e.key=="s"||e.key=="S")rdrTocToggle()}
 }
 
 function rdrOpen(i,k){
  rdrClose();
  RDR.k=k||"c";if(RDR.sets&&RDR.sets[RDR.k])RDR.ls=RDR.sets[RDR.k];
+ RDR.cnt=null;
  const o=document.createElement("div");
  o.id="rdr";o.className="rdr";o.setAttribute("role","dialog");o.setAttribute("aria-modal","true");
- o.innerHTML=`<div class="rdh"><span class="rdt"></span><span class="rdn mu"></span><button class="btn" onclick="rdrClose()" aria-label="Fermer le cours">✕ Fermer</button></div><div class="rdb"></div><div class="rdf"><button class="btn rdv" onclick="rdrGo(-1)"></button><span class="rdd"></span><button class="btn p rdx" onclick="rdrGo(1)"></button></div>`;
+ o.innerHTML=`<div class="rdh"><button class="btn rdst" onclick="rdrTocToggle()" aria-label="Afficher ou masquer le sommaire" title="Sommaire (touche S)">☰<span class="rdtx"> Sommaire</span></button><span class="rdt"></span><span class="rdn mu"></span><span class="rdl mu"></span><span class="rdza"><button class="btn rdzm" onclick="rdrZoom(-1)" aria-label="Réduire le texte" title="Réduire le texte (touche -)">A−</button><button class="btn rdzr" onclick="rdrZoom(0)" aria-label="Taille normale du texte">A</button><button class="btn rdzp" onclick="rdrZoom(1)" aria-label="Agrandir le texte" title="Agrandir le texte (touche +)">A+</button></span><button class="btn" onclick="rdrClose()" aria-label="Fermer le cours">✕ Fermer</button></div><div class="rdpr" role="progressbar" aria-label="Progression de la lecture" aria-valuemin="0" aria-valuemax="100" onclick="rdrProgressGo(event)"><i></i></div><div class="rdm"><nav class="rds" aria-label="Sommaire du cours"></nav><div class="rdb"></div></div><div class="rdf"><button class="btn rdv" onclick="rdrGo(-1)"></button><span class="rdd"></span><button class="btn p rdx" onclick="rdrGo(1)"></button></div>`;
  o.addEventListener("touchstart",e=>{RDR.x=e.changedTouches[0].clientX;RDR.y=e.changedTouches[0].clientY},{passive:true});
  o.addEventListener("touchend",e=>{
+  if(e.target.closest&&e.target.closest(".rds"))return;
   const dx=e.changedTouches[0].clientX-RDR.x,dy=e.changedTouches[0].clientY-RDR.y;
   if(Math.abs(dx)>70&&Math.abs(dx)>2*Math.abs(dy))rdrGo(dx<0?1:-1);
  },{passive:true});
  document.body.appendChild(o);
+ rdrZoomApply();rdrTocApply();
+ window.addEventListener("resize",rdrTocApply);
  document.body.style.overflow="hidden";
  document.addEventListener("keydown",rdrKey);
  if(OP())sfx.room();
@@ -112,6 +201,7 @@ function rdrOpen(i,k){
 
 function rdrClose(){
  const o=$("rdr");if(o)o.remove();
+ window.removeEventListener("resize",rdrTocApply);
  document.body.style.overflow="";
  document.removeEventListener("keydown",rdrKey);
 }
@@ -170,7 +260,10 @@ function crsStyle(){
 .lrow span{opacity:.7;font-size:.85rem;flex:none}
 .sec{display:flex;align-items:center;gap:12px;margin:6px 0 12px;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.8}
 .sec::after{content:"";flex:1;border-top:2px solid var(--bd)}
-.sec.r{margin-top:34px}`;
+.sec.r{margin-top:34px}
+.acc .ab:has(>.lrow){display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));column-gap:10px}
+.acc .ab:not(:has(>.lrow)){column-width:420px;column-gap:32px}
+.acc .ab h3{break-after:avoid}.acc .ab ul{break-inside:avoid}`;
  document.head.appendChild(s);
 }
 function crsToggle(id){CV.o=CV.o===id?null:id;const y=window.scrollY;subj();window.scrollTo(0,y)}
