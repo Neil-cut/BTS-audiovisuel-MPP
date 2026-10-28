@@ -49,6 +49,11 @@
 [data-theme="zelda"] #topbtn.show{display:block;position:fixed;right:18px;bottom:18px;z-index:50;width:52px;height:52px;border-radius:50%;border:2px solid var(--bd);background:var(--ac);font-size:0;cursor:pointer;box-shadow:0 0 14px rgba(var(--cy),.5)}
 [data-theme="zelda"] #topbtn.show::after{content:"🔺";font-size:24px}
 
+/* contraste : dans le lecteur, titres, puces et mots d'appel de note en vert clair (le vert --ac se confondait avec la carte olive : rapport 1,1 ; 4,8 maintenant) */
+[data-theme="zelda"] .rdp h3,[data-theme="zelda"] .rdp .note>b:first-child{color:#d6f5b8}
+[data-theme="zelda"] .rdp li::marker{color:#d6f5b8}
+[data-theme="zelda"] .rdp .note{border-left-color:#d6f5b8}
+
 /* Navi : fée lumineuse qui suit le curseur (créée par zelda.js) */
 #navi{display:none;position:fixed;left:0;top:0;z-index:60;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,#fff 0 25%,#4DEEEA 55%,rgba(77,238,234,0) 72%);box-shadow:0 0 14px 6px rgba(77,238,234,.55)}
 #navi i{position:absolute;top:-4px;width:12px;height:18px;border-radius:50% 50% 50% 50%/70% 70% 30% 30%;background:rgba(255,255,255,.55);animation:wing .18s ease-in-out infinite alternate}

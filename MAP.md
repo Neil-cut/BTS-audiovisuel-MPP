@@ -39,8 +39,8 @@ ATTENTION : même nom dans des dossiers différents : banks.js
 ## css/layout.css (17 lignes, 1 Ko) : structure générale : grille, barre latérale, zone principale
   sections : L10 réorganisation des matières par glisser-déposer
 
-## css/components.css (50 lignes, 4 Ko) : composants réutilisables : cartes, onglets, boutons, quiz, tableaux, leçons
-  sections : L21 liste des chapitres, aide-mémoire et lecteur de cours plein  | L35 la « page » : feuille centrée, texte grand, marges intérieur | L44 bouton « Retour au cours » (cours.js), affiché pendant le qu
+## css/components.css (86 lignes, 8 Ko) : composants réutilisables : cartes, onglets, boutons, quiz, tableaux, leçons
+  sections : L21 liste des chapitres, aide-mémoire et lecteur de cours plein  | L34 taille du texte (A− A A+) : le facteur --rdz est posé sur #r | L37 la « page » : feuille centrée, texte grand, marges intérieur | L43 mots clés et notes « À retenir » plus lisibles dans le lecte | L53 barre de progression de lecture (cours.js) : fine, sous l'en | L62 sommaire latéral du lecteur (cours.js) : colonne à gauche su | L75 quiz : question plus grande, réponses sur deux colonnes quan | L80 bouton « Retour au cours » (cours.js), affiché pendant le qu
 
 ## css/intro.css (8 lignes, 0 Ko) : écran d’accueil (spawn)
 
@@ -79,10 +79,10 @@ Thèmes CSS présents : dark, light, onepiece, panther, zelda
   constantes/état : COURS@3, LESSONS@11
   LESSONS : mon
 
-## js/data/courses_plus.js (468 lignes, 111 Ko) : chapitres supplémentaires (COURS) et leçons détaillées (LESSONS, plusieurs par matière)
+## js/data/courses_plus.js (475 lignes, 123 Ko) : chapitres supplémentaires (COURS) et leçons détaillées (LESSONS, plusieurs par matière)
   fonctions : les@3
   constantes/état : CHAPTERS@7
-  sections : L6 CHAPTERS[id] : chapitres du programme ; chaque chapitre regr | L9 TES – Équipements vidéo | L27 Image fixe | L44 chapitres Image fixe : proposition à valider (le référentiel | L52 chapitres des autres matières : proposition validée par l'ut | L88 Analyse filmique | L108 chapitres du programme (référentiel « Culture audiovisuelle  | L116 Montage | L215 Photoshop & After Effects | L229 Anglais | L352 Français
+  sections : L6 CHAPTERS[id] : chapitres du programme ; chaque chapitre regr | L9 TES – Équipements vidéo | L32 Image fixe | L49 chapitres Image fixe : proposition à valider (le référentiel | L57 chapitres des autres matières : proposition validée par l'ut | L95 Analyse filmique | L115 chapitres du programme (référentiel « Culture audiovisuelle  | L123 Montage | L222 Photoshop & After Effects | L236 Anglais | L359 Français
   COURS enrichis : adobe, ana, ang, fr, img, mon, tes
   LESSONS : adobe, ana, ang, fr, img, mon, tes
 
@@ -95,8 +95,8 @@ Thèmes CSS présents : dark, light, onepiece, panther, zelda
   sections : L7 TES : caméra et optique | L31 TES : signal, codecs, stockage, audio | L55 Image fixe | L79 Analyse filmique | L103 Montage : grammaire | L127 Montage : workflow, outils, finitions | L151 Photoshop & After Effects | L175 Anglais | L199 Français
   banques (id) : tes_cam, tes_sig, img_b, ana_b, mon_gram, mon_flow, adobe_b, ang_b, fr_b
 
-## js/data/phy_eco.js (213 lignes, 54 Ko) : deux matières supplémentaires : Physique-chimie (phy) et Droit & économie (eco)
-  sections : L37 COURS (fiches) | L55 CHAPITRES DÉTAILLÉS | L131 BANQUES DE QUESTIONS | L201 chapitres (proposition validée par l'utilisateur ; indices à
+## js/data/phy_eco.js (214 lignes, 58 Ko) : deux matières supplémentaires : Physique-chimie (phy) et Droit & économie (eco)
+  sections : L37 COURS (fiches) | L55 CHAPITRES DÉTAILLÉS | L132 BANQUES DE QUESTIONS | L202 chapitres (proposition validée par l'utilisateur ; indices à
   matières : phy (Physique-chimie), eco (Droit & économie)
   banques (id) : phy_b, phy_ds1, eco_b
   LESSONS : eco, phy
@@ -127,10 +127,10 @@ Thèmes CSS présents : dark, light, onepiece, panther, zelda
 ## js/ui/subject.js (10 lignes, 0 Ko) : page d’une matière et ses onglets
   fonctions : subj()@3
 
-## js/features/cours.js (197 lignes, 10 Ko) : onglet Cours : chapitres détaillés (LESSONS) lus en plein écran, paginés, + aide-mémoire repliable (COURS)
-  fonctions : toggleLes()@3, noNum@6, rdrPages(h)@10, rdrLoad(i,p)@27, rdrShow()@33, rdrPage(k)@51, rdrMaskStyle()@54, rdrMask(m)@63, rdrMaskUI(b)@69, rdrGo(d)@81, rdrKey(e)@89, rdrOpen(i,k)@95, rdrClose()@113, rdrToQuiz()@121, rdrBackSync()@126, rdrBackHide()@135, rdrBack()@136, crsList(id,n)@146, crsStyle()@155, crsToggle(id)@176, cours(s)@177
-  constantes/état : RDR@7, RDB@120, CV@145
-  sections : L5 Lecteur plein écran | L9 Découpe un chapitre en pages : une page par titre <h3>, les  | L53 Feuille blanche : masque la colonne gauche ou droite des tab | L119 Retour au cours depuis le quiz : mémorise chapitre et page,  | L144 Onglet Cours : une seule page, chapitres du programme avec l
+## js/features/cours.js (333 lignes, 17 Ko) : onglet Cours : chapitres détaillés (LESSONS) lus en plein écran, paginés, + aide-mémoire repliable (COURS)
+  fonctions : toggleLes()@3, noNum@6, rdrZoomApply()@12, rdrWide@23, rdrTitles(pg)@24, rdrTocApply()@27, rdrToc()@34, rdrTocGo(j,k)@47, rdrTocToggle()@51, rdrCounts()@57, rdrProgress()@58, rdrProgressGo(e)@76, rdrLT@87, rdrResumeAll()@88, rdrSave()@89, rdrResumeFind(sid)@96, rdrAgo(t)@109, rdrResume()@114, rdrResumeForget()@119, rdrZoom(d)@125, rdrPages(h)@132, rdrLoad(i,p)@149, rdrShow()@155, rdrPage(k)@174, rdrMaskStyle()@177, rdrMask(m)@186, rdrMaskUI(b)@192, rdrGo(d)@204, rdrKey(e)@212, rdrOpen(i,k)@219, rdrClose()@241, rdrToQuiz()@250, rdrBackSync()@255, rdrBackHide()@264, rdrBack()@265, crsList(id,n)@275, crsStyle()@284, crsToggle(id)@310, cours(s)@311
+  constantes/état : RDR@7, RZ@10, RZL@11, RSW@21, RSN@22, RDB@249, CV@274
+  sections : L5 Lecteur plein écran | L9 Taille du texte du lecteur : paliers de 10 %, mémorisée (clé | L20 Sommaire latéral : leçons de la liste ouverte, pages de la l | L56 Barre de progression de lecture : avancement dans toute la l | L86 Reprise de lecture : dernière page lue par matière (clé loca | L131 Découpe un chapitre en pages : une page par titre <h3>, les  | L176 Feuille blanche : masque la colonne gauche ou droite des tab | L248 Retour au cours depuis le quiz : mémorise chapitre et page,  | L273 Onglet Cours : une seule page, chapitres du programme avec l
 
 ## js/features/exercices.js (15 lignes, 1 Ko) : onglet S’entraîner : accueil (révision + cartes) puis l’exercice choisi, avec bouton de retour
   fonctions : exoGo(u)@4, exo(s)@5
@@ -171,5 +171,5 @@ Thèmes CSS présents : dark, light, onepiece, panther, zelda
 
 ## État partagé
 champs de st : ach, b, bk, cc, g, n, order, rvc, snd, sr, srInit, theme, xp
-clés localStorage : btsapp
+clés localStorage : btsapp, btsrdp, btsrds, btsrdz
 

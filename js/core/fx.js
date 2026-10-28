@@ -3,6 +3,8 @@
 st.snd=st.snd!==false;st.ach=st.ach||[];
 const REDUCE=matchMedia("(prefers-reduced-motion: reduce)").matches;
 const OP=()=>document.documentElement.dataset.theme=="onepiece";
+/* fond calme (panneau Confort) : classe « still » sur <html> ; plus de vagues, de navire ni de décors animés */
+const STILL=()=>document.documentElement.classList.contains("still");
 let AC=null;
 const actx=()=>{if(!AC)try{AC=new(window.AudioContext||window.webkitAudioContext)()}catch(e){}if(AC&&AC.state=="suspended")AC.resume();return AC};
 function tone(f1,f2,d,type,v,delay){
@@ -139,6 +141,7 @@ function fxPulse(){if(OP())berry();if(REDUCE)return;pulseT=performance.now();pul
  addEventListener("resize",size);size();
  (function draw(t){
   g.fillStyle=css("--bg")||"#f4f4f8";g.fillRect(0,0,w,h);
+  if(STILL()){requestAnimationFrame(draw);return}
   const rgb=css("--pr")||"255,255,255";let pf=0;
   if(pulse){const k=performance.now()-pulseT;if(k<pulse.dur){const q=k/pulse.dur;pf=Math.sin(q*Math.PI*pulse.f)*Math.exp(-pulse.d*q)*pulse.s*pulse.sg}else pulse=null}
   for(let i=0;i<3;i++){
@@ -181,7 +184,7 @@ function fxWanted(t,n){
  let sy=45,sa=0;
  (function loop(now){
   requestAnimationFrame(loop);
-  if(!OP()||REDUCE)return;
+  if(!OP()||REDUCE||STILL())return;
   const t=now/1000,st0=document.documentElement.style,oa=-((t*60)%600),ob=-((t*80)%400);
   st0.setProperty("--wa",oa.toFixed(1)+"px");st0.setProperty("--wb",ob.toFixed(1)+"px");
   const W=b.offsetWidth||140,cx=b.offsetLeft+W/2,L=W*.38,

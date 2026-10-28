@@ -25,7 +25,7 @@ const nTarget=e=>{tx=e.clientX+34;ty=e.clientY-34};
 addEventListener("pointermove",nTarget);addEventListener("pointerdown",nTarget);
 (function loop(t){
  requestAnimationFrame(loop);
- if(!ZL()||REDUCE)return;
+ if(!ZL()||REDUCE||STILL())return;
  nx+=(tx-nx)*.05;ny+=(ty-ny)*.05;
  NV.style.transform="translate("+(nx+Math.sin(t/330)*9).toFixed(1)+"px,"+(ny+Math.cos(t/270)*9).toFixed(1)+"px)";
 })(0);
