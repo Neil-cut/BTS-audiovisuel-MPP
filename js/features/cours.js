@@ -4,7 +4,7 @@ function toggleLes(){tab="exo";sub="quiz";subj()}
 
 /* ---- Lecteur plein écran ---- */
 const noNum=t=>t.replace(/^(📖\s*)\d+\.\s*/,"$1");
-const RDR={ls:[],i:0,p:0,pg:[],x:0,y:0};
+const RDR={ls:[],i:0,p:0,pg:[],x:0,y:0,mask:""};
 
 /* Découpe un chapitre en pages : une page par titre <h3>, les pages trop courtes sont fusionnées. */
 function rdrPages(h){
@@ -38,6 +38,7 @@ function rdrShow(){
  const quiz=lastPage?`<p style="text-align:center;margin-top:28px"><button class="btn p" onclick="rdrToQuiz()">Passer au quiz →</button></p>`:"";
  const b=o.querySelector(".rdb");
  b.innerHTML=`<div class="rdp">${R.pg[R.p]}${quiz}</div>`;
+ rdrMaskUI(b);
  b.scrollTop=0;
  const pv=o.querySelector(".rdv"),nx=o.querySelector(".rdx");
  pv.disabled=R.p==0&&R.i==0;
@@ -48,6 +49,34 @@ function rdrShow(){
 }
 
 function rdrPage(k){RDR.p=k;rdrShow()}
+
+/* ---- Feuille blanche : masque la colonne gauche ou droite des tableaux à deux colonnes (vocabulaire) ; clic sur une case = la révéler ---- */
+function rdrMaskStyle(){
+ if(document.getElementById("rdmks"))return;
+ const s=document.createElement("style");s.id="rdmks";
+ s.textContent=`.rdmk{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 16px;font-size:.85rem}
+.rdmk>span{opacity:.8;margin-right:4px}
+.rdp td.mk{filter:blur(7px);cursor:pointer;user-select:none;-webkit-user-select:none;transition:filter .2s}
+.rdp td.mk.show{filter:none;user-select:auto;-webkit-user-select:auto}`;
+ document.head.appendChild(s);
+}
+function rdrMask(m){
+ RDR.mask=RDR.mask===m?"":m;
+ const b=$("rdr")&&$("rdr").querySelector(".rdb"),y=b?b.scrollTop:0;
+ rdrShow();
+ if(b)b.scrollTop=y;
+}
+function rdrMaskUI(b){
+ const p=b.querySelector(".rdp"),rows=[];
+ p.querySelectorAll("table tr").forEach(r=>{const c=r.querySelectorAll(":scope>td");if(c.length==2)rows.push(c)});
+ if(!rows.length)return;
+ rdrMaskStyle();
+ const m=RDR.mask;
+ rows.forEach(c=>{const h=m=="l"?c[0]:m=="r"?c[1]:null;if(h){h.classList.add("mk");h.title="Cliquer pour révéler";h.onclick=()=>h.classList.toggle("show")}});
+ const bar=document.createElement("div");bar.className="rdmk";
+ bar.innerHTML=`<span>📝 Feuille blanche :</span><button class="btn${m=="l"?" p":""}" onclick="rdrMask('l')">Masquer la gauche</button><button class="btn${m=="r"?" p":""}" onclick="rdrMask('r')">Masquer la droite</button>${m?`<button class="btn" onclick="rdrMask('')">Tout afficher</button><span>Cliquez sur une case floue pour la révéler.</span>`:""}`;
+ p.insertBefore(bar,p.firstChild);
+}
 
 function rdrGo(d){
  const R=RDR,np=R.p+d;

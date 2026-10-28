@@ -61,3 +61,47 @@
 /* notes de jazz qui s'envolent à chaque bonne réponse */
 .jazznote{position:fixed;z-index:400;pointer-events:none;color:#F08CA0;font:900 1.3rem Georgia,serif;text-shadow:0 2px 0 rgba(0,0,0,.6);animation:jazznote 1s ease-out forwards}
 @keyframes jazznote{to{transform:translateY(-70px) rotate(12deg);opacity:0}}
+
+/* fond du lecteur de cours (.rdr) : les calques ::before et ::after sont derrière la feuille (.rdp), le contenu au-dessus */
+[data-theme="panther"] .rdr{overflow:hidden}
+[data-theme="panther"] .rdr::before,[data-theme="panther"] .rdr::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:0}
+[data-theme="panther"] .rdr>*{position:relative;z-index:1}
+
+/* ---------- Panthère Rose : persiennes, silhouette de fedora, fumée qui monte ---------- */
+[data-theme="panther"] .rdr{background:radial-gradient(ellipse at 50% 15%,#c4301a 0%,#9A1A0C 55%,#4a0905 100%)}
+[data-theme="panther"] .rdr::before{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 120'%3E%3Cpath d='M8 88C8 78 40 70 62 68C60 40 72 20 100 20C128 20 140 40 138 68C160 70 192 78 192 88C192 102 150 108 100 108C50 108 8 102 8 88Z' fill='black' fill-opacity='.4'/%3E%3C/svg%3E") right -30px bottom -10px/min(42vw,440px) no-repeat,repeating-linear-gradient(115deg,rgba(255,230,200,.07) 0 36px,transparent 36px 96px)}
+[data-theme="panther"] .rdr::after{inset:auto 0 -40% 0;height:140%;filter:blur(14px);background:radial-gradient(circle at 18% 90%,rgba(255,235,220,.22) 0,transparent 16%),radial-gradient(circle at 52% 95%,rgba(255,235,220,.18) 0,transparent 20%),radial-gradient(circle at 82% 88%,rgba(255,235,220,.2) 0,transparent 15%);animation:rdsmoke 22s ease-in-out infinite alternate}
+@keyframes rdsmoke{from{transform:translateY(8%);opacity:.5}to{transform:translateY(-28%);opacity:1}}
+
+@media(prefers-reduced-motion:reduce){[data-theme="panther"] .rdr::after{animation:none!important}}
+
+/* poursuite en arrière-plan : un voleur avec son sac court sur place, poursuivi par un détective au fusil (créée par panther.js) */
+#chase{display:none;position:fixed;left:244px;right:0;bottom:0;height:min(22vh,170px);z-index:0;pointer-events:none;opacity:.88}
+[data-theme="panther"] #chase{display:block}
+#chase svg{display:block;width:100%;height:100%}
+#chase *{transform-origin:0 0}
+#chase .ch-fill{fill:#0a0203}
+#chase .ch-limb{fill:none;stroke:#0a0203;stroke-width:9;stroke-linecap:round;stroke-linejoin:round}
+#chase .ch-ground{stroke:rgba(10,2,3,.55);stroke-width:3;stroke-dasharray:26 18;animation:chground .3s linear infinite}
+#chase .ch-bob{animation:chbob .19s ease-in-out infinite alternate}
+#chase .ch-det{animation:chdet 2.4s ease-in-out infinite alternate}
+#chase .ch-thief{animation:chthf 2s ease-in-out infinite alternate}
+#chase .ch-th1,#chase .ch-th2{animation:chthigh .38s ease-in-out infinite}
+#chase .ch-sh1,#chase .ch-sh2{animation:chshin .38s ease-in-out infinite}
+#chase .ch-th2,#chase .ch-sh2{animation-delay:-.19s}
+#chase .ch-a1{animation:charm .38s ease-in-out infinite}
+#chase .ch-bagarm{animation:chbag .19s ease-in-out infinite alternate}
+#chase .ch-coat{animation:chcoat .19s ease-in-out infinite alternate}
+#chase .ch-scarf{animation:chscarf .12s ease-in-out infinite alternate}
+@keyframes chground{to{stroke-dashoffset:44}}
+@keyframes chbob{to{transform:translateY(-4px)}}
+@keyframes chdet{to{transform:translateX(18px)}}
+@keyframes chthf{to{transform:translateX(-12px)}}
+@keyframes chthigh{0%,100%{transform:rotate(-50deg)}50%{transform:rotate(35deg)}}
+@keyframes chshin{0%,100%{transform:rotate(0)}40%{transform:rotate(12deg)}60%{transform:rotate(70deg)}85%{transform:rotate(50deg)}}
+@keyframes charm{0%,100%{transform:rotate(60deg)}50%{transform:rotate(-60deg)}}
+@keyframes chbag{from{transform:rotate(-10deg)}to{transform:rotate(12deg)}}
+@keyframes chcoat{from{transform:skewY(-10deg)}to{transform:skewY(12deg) scaleX(.8)}}
+@keyframes chscarf{from{transform:rotate(-14deg)}to{transform:rotate(14deg)}}
+@media(max-width:720px){#chase{left:0}}
+@media(prefers-reduced-motion:reduce){#chase *{animation:none!important}}
