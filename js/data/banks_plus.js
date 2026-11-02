@@ -76,6 +76,122 @@ Bq("À 300 ppp, 6000 px donnent une largeur d’impression d’environ :",["20 c
 Bq("Un fichier RAW 14 bits par rapport à un JPEG 8 bits :",["Est moins retouchable","Offre une latitude de retouche bien supérieure","N’a aucune différence","Ne contient pas de couleurs"],1,"Beaucoup plus de niveaux et pas de compression destructrice.","Fichiers"),
 Bq("Une image vectorielle (SVG) :",["Dépend de la résolution","Reste nette à toute taille","Est un RAW","Est limitée à 256 couleurs"],1,"Formes mathématiques, pas de pixels.","Fichiers")]));
 
+/* ---------- Image fixe : banques par thème (2026-11-02) ---------- */
+addB("img",Bk("img_compo","🧩","Composition de l’image","Règle des tiers, composition centrée, pyramidale, plein et vide",[
+Bq("Où se trouvent les points de force de la règle des tiers ?",["Au centre de l’image", "Aux intersections de la grille 3×3", "Dans les coins uniquement", "Sur le bord du cadre"],1,"La grille 3×3 crée quatre intersections : ce sont les points de force.","Règle des tiers"),
+Bq("Placer un élément sur un point de force sert à :",["Le cacher", "Le mettre en évidence et attirer l’attention", "L’aplatir", "Réduire la netteté"],1,"Les points de force attirent naturellement le regard.","Règle des tiers"),
+Bq("Une composition centrée donne surtout une image :",["Dynamique et instable", "Visible, claire et ordonnée", "Illisible", "Chaotique"],1,"Le centre met en valeur l’élément principal et stabilise l’image.","Centrée / décentrée"),
+Bq("Une composition décentrée produit plutôt :",["Du dynamisme, de l’instabilité", "Un calme absolu", "Une symétrie parfaite", "Un effet pyramidal"],0,"Décentrer rompt la stabilité et crée du mouvement.","Centrée / décentrée"),
+Bq("Une composition pyramidale :",["Écrase le sujet", "Attire le regard vers le haut de l’image", "Cache le sommet", "Supprime le vide"],1,"Les éléments forment un triangle dont le sommet attire le regard.","Pyramidale"),
+Bq("Une composition chargée évoque plutôt :",["Le calme", "Le désordre ou le chaos", "La symétrie", "Le minimalisme"],1,"L’accumulation d’éléments produit un effet désordonné, étouffant.","Chargée / épurée"),
+Bq("Pour une composition épurée, il faut réfléchir à :",["Ce que le vide met en valeur", "Combien d’objets ajouter", "La saturation du fond", "La résolution"],0,"Dans une image épurée, le vide a un sens : il met en valeur l’élément principal.","Chargée / épurée"),
+Bq("Les lignes de forces sont :",["Les lignes de la grille de composition", "Les lignes d’un texte", "Des bords du fichier", "Des filtres"],0,"Les lignes et points de la grille guident le regard.","Règle des tiers"),
+Bq("Une composition équilibrée joue sur :",["Le plein et le vide", "Le nombre de pixels", "Le format du fichier", "Le flash"],0,"Un bon équilibre répartit pleins et vides dans le cadre.","Plein / vide"),
+Bq("« Une théorie de composition » apparaît, selon le cours, parce que :",["On a perdu un savoir", "Les images sont gratuites", "On n’a plus de grille", "On a trop de couleurs"],0,"Notion du cours : la théorie naît quand un savoir s’est perdu.","Théorie")
+],[
+Bq("Un portrait où tout le cadre est rempli d’éléments donne une impression :",["D’air et de respiration", "Étouffante et chargée", "De vide", "D’horizontalité"],1,"L’accumulation étouffe le regard.","Chargée / épurée"),
+Bq("Cadrage buste et tête dans un portrait d’apparat : il sert à :",["Cacher la tenue", "Exposer richesse, rang et tenue", "Montrer l’environnement", "Créer du flou"],1,"Le cadrage resserré met en valeur le visage, le col et la tenue.","Analyse"),
+Bq("Un cadrage large montrant une foule sert à :",["Isoler un visage", "Montrer le nombre de personnes et l’organisation", "Cacher la lumière", "Créer un gros plan"],1,"Le plan large montre l’ampleur et l’organisation.","Analyse"),
+Bq("Pour attirer l’œil sur un personnage dans une grande image, on peut :",["Le placer sur un point de force", "Le placer dans un coin sans rien d’autre", "Le rendre flou", "Le mettre en bordure du cadre"],0,"Un point de force met en évidence.","Règle des tiers"),
+Bq("Un vide important autour du sujet :",["Isole et valorise le sujet", "Est une erreur obligatoire", "Supprime le sens", "Rend l’image chargée"],0,"Le vide peut mettre en valeur l’élément principal.","Plein / vide"),
+Bq("Quelle composition guide le regard du bas vers le sommet ?",["Pyramidale", "Chaotique", "Horizontale uniquement", "Diagonale vers le bas"],0,"La pyramide dirige le regard vers le haut.","Pyramidale"),
+Bq("Un sujet centré dans un cadre calme et épuré renforce :",["La stabilité et la clarté", "L’instabilité", "Le chaos", "La profondeur de champ"],0,"Centré + épuré = lisibilité et stabilité.","Centrée / décentrée"),
+Bq("Dans la méthode du cours, composer revient à :",["Choisir où placer les éléments pour guider le regard", "Mesurer la lumière", "Choisir un format de fichier", "Compresser l’image"],0,"Composer = organiser l’espace du cadre.","Définition")
+]));
+addB("img",Bk("img_lignes","📐","Lignes et mouvements artistiques","Horizontales, verticales, obliques, courbes ; néoclassicisme, romantisme, baroque",[
+Bq("Une ligne horizontale évoque surtout :",["Le dynamisme", "Le calme, la stabilité", "Le chaos", "La grandeur verticale"],1,"Horizontale = repos, calme, tranquillité.","Lignes"),
+Bq("Une ligne verticale évoque :",["Stabilité, élévation, grandeur", "Le désordre", "Un mouvement rapide", "La mort"],0,"Verticale = élévation, grandeur, droiture.","Lignes"),
+Bq("Une ligne oblique crée :",["De l’immobilité", "Du dynamisme, du mouvement", "Du vide", "Une impression de calme total"],1,"L’oblique est dynamique.","Lignes"),
+Bq("Une ligne courbe donne plutôt :",["Du dynamisme", "De l’austérité", "Un effet rigide", "Une symétrie"],0,"La courbe est associée au dynamisme.","Lignes"),
+Bq("Les lignes serpentines sont typiques de :",["Néoclassicisme", "Baroque", "Art égyptien", "Pointillisme"],1,"Le baroque aime les lignes serpentines.","Baroque"),
+Bq("Le baroque naît :",["Au début du XVIIe siècle", "Au Moyen Âge", "Au XXe siècle", "À la préhistoire"],0,"Notion du cours : début XVIIe.","Baroque"),
+Bq("Le baroque est associé à :",["Religion, sensualité, théâtralité", "Rationalité, vertu, noblesse", "Pathos, nature désolée", "Aplat égyptien"],0,"Religieux, sensualité, théâtralité.","Baroque"),
+Bq("Le néoclassicisme privilégie :",["Un désordre émotionnel", "Un esthétique du beau : noblesse, vertu, rationalité", "Une nature désolée", "L’art pariétal"],1,"Image ordonnée, espace de respiration.","Néoclassicisme"),
+Bq("Le romantisme met en scène :",["La tragédie, le pathos, les émotions", "La rationalité froide", "Les grandes pyramides", "Des motifs géométriques seulement"],0,"Dramatisation, pathos, nature désolée.","Romantisme"),
+Bq("Les lignes directrices servent à :",["Conduire le regard", "Mesurer l’exposition", "Compresser", "Cacher le sujet"],0,"Elles guident l’œil dans l’image.","Lignes")
+],[
+Bq("Quand les lignes horizontales, verticales, obliques et courbes sont réunies, l’image crée :",["Une harmonie, un équilibre", "Un vide", "Un flou", "Un fond noir"],0,"Notion du cours : harmonie, équilibre.","Lignes"),
+Bq("Un bâtiment dont les verticales dominent paraît :",["Grand, élevé", "Couché", "Instable", "Effacé"],0,"La verticale accentue élévation et grandeur.","Analyse"),
+Bq("L’horizontale « poussée à l’extrême » peut évoquer :",["La mort, l’absence de vie", "Le mouvement", "L’explosion", "La vitesse"],0,"Immobilité totale : mort, absence de vie.","Analyse"),
+Bq("L’esthétique du laid est associée au :",["Romantisme", "Néoclassicisme", "Baroque", "Réalisme égyptien"],0,"Notes du cours : romantisme et esthétique du laid.","Romantisme"),
+Bq("Quel couple est correct ?",["Néoclassicisme : espace de respiration ; Baroque : lignes serpentines", "Baroque : espace de respiration ; Néoclassicisme : serpentines", "Romantisme : rationalité ; Néoclassicisme : pathos", "Néoclassicisme : théâtralité ; Baroque : vertu"],0,"Chaque mouvement a ses lignes et ses valeurs.","Mouvements"),
+Bq("Les lignes du drapeau pointant vers un président servent à :",["Montrer qu’il est l’élément principal", "Cacher l’arrière-plan", "Faire un effet de flou", "Réduire le contraste"],0,"Lignes directrices vers le centre du pouvoir.","Analyse"),
+Bq("Que fait-on après avoir nommé une ligne ?",["On dit l’effet produit", "On la supprime", "On change le format", "On mesure ses pixels"],0,"Méthode : nommer, puis interpréter l’effet.","Méthode"),
+Bq("Une ligne oblique ascendante tend à :",["Dynamiser l’image", "L’immobiliser", "La plonger dans l’ombre", "La rendre plate"],0,"Mouvement vers le haut.","Lignes")
+]));
+addB("img",Bk("img_couleur","🎨","Couleur, saturation et palette","Primaires, complémentaires, palette, saturation",[
+Bq("Combien y a-t-il de couleurs primaires en pigmentation ?",["2", "3", "4", "6"],1,"Cyan, magenta, jaune.","Primaires"),
+Bq("Quelles sont les primaires en pigmentation ?",["Rouge, vert, bleu", "Cyan, magenta, jaune", "Noir, blanc, gris", "Orange, vert, violet"],1,"Bleu (cyan), rouge (magenta), jaune.","Primaires"),
+Bq("Le complémentaire du rouge est :",["Le vert", "L’orange", "Le jaune", "Le cyan"],0,"Rouge ↔ vert.","Complémentaires"),
+Bq("Le complémentaire du bleu est :",["L’orange", "Le violet", "Le vert", "Le magenta"],0,"Bleu ↔ orange.","Complémentaires"),
+Bq("Deux couleurs complémentaires côte à côte produisent :",["Un contraste fort", "Une harmonie douce", "Du gris obligatoire", "Du flou"],0,"Le contraste est maximal.","Complémentaires"),
+Bq("Une palette chromatique restreinte donne :",["Peu de diversité de couleurs", "Un chaos coloré", "Un excès de contraste", "Une image sans sujet"],0,"Notion du cours.","Palette"),
+Bq("Une composition aux couleurs très variées tend vers :",["Le désordre", "Le calme", "Le vide", "La symétrie"],0,"Notes : composition chargée → désordre, chaos.","Palette"),
+Bq("La saturation désigne :",["L’intensité, la pureté d’une couleur", "La taille d’un fichier", "La vitesse d’obturation", "La mise au point"],0,"Saturée = vive ; désaturée = terne.","Saturation")
+],[
+Bq("Un fond bleu et un sujet orange créent :",["Un contraste de complémentaires", "Une harmonie d’analogues", "Un noir et blanc", "Du flou"],0,"Bleu et orange sont complémentaires.","Analyse"),
+Bq("Une image désaturée donne plutôt une impression :",["Terne ou mélancolique", "Éclatante", "Électrique", "Surchargée de couleurs"],0,"La désaturation éteint la couleur.","Saturation"),
+Bq("Les couleurs chaudes évoquent :",["L’énergie, la proximité", "La distance froide", "L’absence totale de lumière", "Le vide"],0,"Rouge, orange, jaune.","Températures"),
+Bq("Les couleurs froides évoquent :",["Le calme, la distance", "La colère", "Le feu", "L’urgence"],0,"Bleu, vert.","Températures"),
+Bq("Palette restreinte et composition épurée donnent :",["Une image sobre et unifiée", "Un chaos", "Un surcroît de contrastes", "Un format panoramique"],0,"Sobriété et cohérence.","Palette"),
+Bq("Le jaune a pour complémentaire :",["Le violet", "Le vert", "Le rouge", "L’orange"],0,"Jaune ↔ violet.","Complémentaires"),
+Bq("Quel mélange exact donne un effet pigmentaire ?",["Cyan + jaune → vert", "Rouge + vert → jaune lumière", "Rouge + bleu lumière → cyan", "Rouge + vert + bleu → noir"],0,"En pigmentation, cyan + jaune donne du vert.","Primaires"),
+Bq("Une image très saturée est :",["Vive et intense", "Neutre", "Toujours en noir et blanc", "Sans contraste"],0,"Couleurs pures et intenses.","Saturation")
+]));
+addB("img",Bk("img_analyse","🔍","Lire et analyser une image","Qui, quoi, où, quand, comment, pourquoi ; commentaire et exemples",[
+Bq("Quelles sont les six questions de description ?",["Qui, quoi, où, quand, comment, pourquoi", "Pixel, ppp, ISO, f/, RAW, JPEG", "Forme, couleur, ligne, ombre, flou, noir", "Aucune de celles-ci"],0,"Les questions de base de l’analyse.","Méthode"),
+Bq("Vue vers le haut = :",["Contre-plongée", "Plongée", "Plan large", "Champ-contrechamp"],0,"La caméra est placée en bas.","Vocabulaire"),
+Bq("Avant d’interpréter une image, on doit :",["La décrire", "La supprimer", "La recadrer", "La vendre"],0,"Décrire avant d’interpréter.","Méthode"),
+Bq("Dans un portrait de pouvoir, la verticalité suggère :",["La droiture", "Le désordre", "La mort", "Le mouvement"],0,"La verticale évoque grandeur et droiture.","Exemples"),
+Bq("Un sourire dans un portrait officiel inspire :",["La confiance", "La peur", "Le désordre", "L’ennui"],0,"Exemple du cours (portrait présidentiel).","Exemples"),
+Bq("Un buste et la tête cadrés dans un portrait d’apparat servent à exposer :",["Richesse, rang, tenue", "L’arrière-plan", "Un paysage", "Un mouvement de foule"],0,"Exemple du cours.","Exemples"),
+Bq("Les grands murs sur un cadrage large montrent :",["La puissance", "Le vide", "La saturation", "La douceur"],0,"Exemple du cours.","Exemples"),
+Bq("Une œuvre qui annonce un événement sert à :",["Prévenir, anticiper", "Cacher", "Supprimer le sujet", "Illustrer un fichier"],0,"Exemple du devoir.","Exemples")
+],[
+Bq("L’étape qui suit la description est :",["L’interprétation", "La compression", "Le recadrage", "L’impression"],0,"Description → interprétation → contexte.","Méthode"),
+Bq("Contextualiser, c’est :",["Replacer l’œuvre dans son époque et son genre", "La mesurer en pixels", "La noircir", "La copier"],0,"Époque, genre, commande.","Méthode"),
+Bq("Les lignes horizontales du drapeau convergent vers le centre pour :",["Montrer l’élément principal", "Faire du flou", "Cacher la couleur", "Réduire le contraste"],0,"Lignes directrices vers le sujet.","Exemples"),
+Bq("« Quand » dans l’analyse sert à :",["Situer l’époque", "Nommer le personnage", "Dire la couleur", "Choisir le cadrage"],0,"Quand = époque, date.","Méthode"),
+Bq("« Comment » dans l’analyse sert à :",["Décrire les choix formels", "Dater l’œuvre", "Identifier le lieu", "Citer l’auteur"],0,"Comment l’image est-elle construite.","Méthode"),
+Bq("« Pourquoi » dans l’analyse sert à :",["Interpréter l’intention", "Compter les couleurs", "Mesurer la résolution", "Choisir le format"],0,"Pourquoi ces choix ? Quel effet recherché ?","Méthode")
+]));
+addB("img",Bk("img_art","🏺","Art pariétal, mythes et Égypte","Lascaux, aspectivité, Chronos, Osiris, pyramides, armée Qin",[
+Bq("Qu’est-ce que l’art pariétal ?",["L’art sur les parois des grottes", "L’art sur toile", "L’art numérique", "L’art sur papier"],0,"Pariétal = sur la paroi.","Préhistoire"),
+Bq("Lascaux est situé :",["En Dordogne", "En Espagne", "En Patagonie", "En Égypte"],0,"Lascaux, Dordogne, vers −18 000.","Préhistoire"),
+Bq("Quelle fonction de l’art pariétal n’est plus retenue ?",["Une simple décoration", "Religieuse", "Symbolique", "Narrative"],0,"On ne pense plus qu’elles aient une fonction décorative.","Préhistoire"),
+Bq("L’aspectivité, c’est :",["Représenter chaque partie sous son aspect le plus identifiable", "Représenter en perspective", "Mélanger les couleurs", "Utiliser le flou"],0,"Tête et jambes de profil, œil et torse de face.","Égypte"),
+Bq("La pyramide symbolise :",["L’élévation de l’âme du défunt vers le ciel", "Un commerce", "Une bataille", "Un dieu de la guerre"],0,"Notion du cours.","Égypte"),
+Bq("Ouranos est :",["Le dieu du ciel", "Le dieu de la mer", "Le dieu des morts", "La déesse de la Terre"],0,"Ouranos : ciel ; Gaïa : Terre.","Grèce"),
+Bq("Gaïa est :",["La déesse de la Terre", "La déesse de la ruse", "La déesse du Nil", "La déesse de la guerre"],0,"Gaïa = Terre.","Grèce"),
+Bq("Chronos, dans le tableau étudié :",["Dévore ses enfants", "Sauve ses frères", "Se transforme en eau", "Règne sur les morts"],0,"« Chronos mange ses enfants ».","Grèce"),
+Bq("Métis est :",["La déesse de la ruse", "La déesse de la Terre", "Le dieu du ciel", "La déesse de la fertilité égyptienne"],0,"Elle se métamorphose en tout ce qu’elle veut.","Grèce"),
+Bq("Dans le mythe égyptien, qui est jaloux d’Osiris ?",["Seth", "Isis", "Horus", "Anubis"],0,"Seth, dieu de la désertification.","Égypte")
+],[
+Bq("En combien de morceaux Seth coupe-t-il Osiris ?",["14", "7", "3", "40"],0,"14 morceaux (14 nomes).","Égypte"),
+Bq("Qui récupère les morceaux d’Osiris ?",["Isis", "Seth", "Horus", "Ouranos"],0,"Isis les récupère.","Égypte"),
+Bq("Quel dieu naît d’Isis et vengera Osiris ?",["Horus", "Seth", "Chronos", "Zeus"],0,"Horus.","Égypte"),
+Bq("Zeus s’allie avec :",["Les cyclopes", "Les momies", "Les serpents", "Les Égyptiens"],0,"Contre les dieux primordiaux.","Grèce"),
+Bq("L’armée de l’empereur Qin est un art :",["Funéraire", "Pariétal", "Néoclassique", "Baroque"],0,"Elle protège l’empereur après la mort.","Chine"),
+Bq("Elle a été redécouverte en :",["1974", "1874", "1944", "2004"],0,"Découverte en 1974 par des paysans (à vérifier).","Chine"),
+Bq("Le chat est précieux en Égypte car il :",["Protège les récoltes des rats", "Chasse les oiseaux sacrés", "Mange le blé", "Porte les morts"],0,"Allié des récoltes.","Égypte"),
+Bq("La question de la restitution porte sur :",["Les œuvres pillées par d’autres nations", "Les pigments", "Les grilles de composition", "Les couleurs"],0,"Les musées qui ont pillé d’autres nations.","Mémoire")
+]));
+addB("img",Bk("img_bechdel","🚺","Test de Bechdel et regard","Les trois critères, limites, objectivité et reconstitution",[
+Bq("Le test de Bechdel exige au moins :",["Deux personnages féminins nommés", "Un seul personnage féminin", "Un narrateur masculin", "Trois scènes d’action"],0,"Premier critère.","Critères"),
+Bq("Ces personnages doivent :",["Se parler", "Se disputer", "S’éviter", "Rester silencieuses"],0,"Deuxième critère.","Critères"),
+Bq("De quoi doivent-elles parler ?",["D’autre chose que d’un homme", "D’un homme", "D’une robe", "De leur travail"],0,"Troisième critère.","Critères"),
+Bq("Le test de Bechdel mesure :",["La représentation des femmes dans une œuvre", "La qualité artistique", "La durée d’un film", "La saturation des couleurs"],0,"Il ne juge pas la qualité.","Portée"),
+Bq("Peut-on créer en prétendant à l’objectivité absolue ?",["Non, tout choix exprime un point de vue", "Oui toujours", "Seulement en couleur", "Seulement en noir et blanc"],0,"Notion du cours.","Objectivité"),
+Bq("La caméra subjective montre :",["Ce que voit le personnage", "Une vue aérienne", "Un plan sans sujet", "Un fond noir"],0,"Point de vue du personnage.","Regard")
+],[
+Bq("Un film où deux femmes ne parlent que d’un homme :",["Ne valide pas le test", "Valide le test", "Est interdit", "Est un film muet"],0,"Troisième critère non rempli.","Critères"),
+Bq("Réussir le test signifie que l’œuvre est bonne :",["Faux", "Vrai", "Toujours", "Seulement en couleur"],0,"Le test ne dit rien de la qualité.","Portée"),
+Bq("La reconstitution consiste à :",["Recomposer le réel", "Supprimer les archives", "Filmer uniquement en gros plan", "Éviter les lignes"],0,"Elle recompose le passé depuis le présent.","Archives"),
+Bq("Mêler archives et fiction demande :",["De distinguer le vrai du reconstitué", "D’ignorer l’archive", "De supprimer la couleur", "De fermer le diaphragme"],0,"Travail de traitement de l’image.","Archives"),
+Bq("Le test de Bechdel porte sur :",["Les dialogues", "Le diaphragme", "Le format de fichier", "Le grain"],0,"Il regarde qui parle, avec qui, de quoi.","Critères"),
+Bq("Choisir un cadrage est :",["Déjà un choix subjectif", "Totalement neutre", "Interdit en art", "Réservé au noir et blanc"],0,"Tout cadrage est un point de vue.","Objectivité")
+]));
+
 /* ---------- Analyse filmique ---------- */
 addB("ana",Bk("ana_b","🎞️","Langage cinématographique","Plans, son, montage, histoire du cinéma",[
 Bq("Le gros plan sur un visage met surtout en valeur :",["Le décor","Les émotions du personnage","Le mouvement de caméra","Le format d’image"],1,"Il rapproche le spectateur du personnage.","Plans"),

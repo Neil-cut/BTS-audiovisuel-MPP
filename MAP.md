@@ -83,10 +83,10 @@ Thèmes CSS présents : dark, light, onepiece, panther, zelda
   constantes/état : COURS@3, LESSONS@11
   LESSONS : mon
 
-## js/data/courses_plus.js (475 lignes, 123 Ko) : chapitres supplémentaires (COURS) et leçons détaillées (LESSONS, plusieurs par matière)
+## js/data/courses_plus.js (478 lignes, 131 Ko) : chapitres supplémentaires (COURS) et leçons détaillées (LESSONS, plusieurs par matière)
   fonctions : les@3
   constantes/état : CHAPTERS@7
-  sections : L6 CHAPTERS[id] : chapitres du programme ; chaque chapitre regr | L9 TES – Équipements vidéo | L32 Image fixe | L49 chapitres Image fixe : proposition à valider (le référentiel | L57 chapitres des autres matières : proposition validée par l'ut | L95 Analyse filmique | L115 chapitres du programme (référentiel « Culture audiovisuelle  | L123 Montage | L222 Photoshop & After Effects | L236 Anglais | L359 Français
+  sections : L6 CHAPTERS[id] : chapitres du programme ; chaque chapitre regr | L9 TES – Équipements vidéo | L32 Image fixe | L49 chapitres Image fixe : proposition à valider (le référentiel | L57 chapitres des autres matières : proposition validée par l'ut | L96 Analyse filmique | L116 chapitres du programme (référentiel « Culture audiovisuelle  | L124 Montage | L223 Photoshop & After Effects | L237 Anglais | L360 Français
   COURS enrichis : adobe, ana, ang, fr, img, mon, tes
   LESSONS : adobe, ana, ang, fr, img, mon, tes
 
@@ -94,10 +94,10 @@ Thèmes CSS présents : dark, light, onepiece, panther, zelda
   constantes/état : BANKS@3
   banques (id) : info, attic
 
-## js/data/banks_plus.js (222 lignes, 34 Ko) : banques de questions supplémentaires (ajoutées à BANKS)
+## js/data/banks_plus.js (300 lignes, 51 Ko) : banques de questions supplémentaires (ajoutées à BANKS)
   fonctions : Bq@3, Bk@4, addB@5
-  sections : L7 TES : caméra et optique | L31 TES : signal, codecs, stockage, audio | L55 Image fixe | L79 Analyse filmique | L103 Montage : grammaire | L127 Montage : workflow, outils, finitions | L151 Photoshop & After Effects | L175 Anglais | L199 Français
-  banques (id) : tes_cam, tes_sig, img_b, ana_b, mon_gram, mon_flow, adobe_b, ang_b, fr_b
+  sections : L7 TES : caméra et optique | L31 TES : signal, codecs, stockage, audio | L55 Image fixe | L79 Analyse filmique | L103 Montage : grammaire | L127 Montage : workflow, outils, finitions | L151 Photoshop & After Effects | L175 Anglais | L199 Français | L223 Français : banque spécialisée en figures de style | L267 Français : banque spécialisée en humanisme et courtoisie lit
+  banques (id) : tes_cam, tes_sig, img_b, ana_b, mon_gram, mon_flow, adobe_b, ang_b, fr_b, fr_figures, fr_humcour
 
 ## js/data/phy_eco.js (214 lignes, 58 Ko) : deux matières supplémentaires : Physique-chimie (phy) et Droit & économie (eco)
   sections : L37 COURS (fiches) | L55 CHAPITRES DÉTAILLÉS | L132 BANQUES DE QUESTIONS | L202 chapitres (proposition validée par l'utilisateur ; indices à
