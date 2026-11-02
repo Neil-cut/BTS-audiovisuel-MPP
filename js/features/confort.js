@@ -3,8 +3,9 @@
 
 (function(){
  const root=document.documentElement;
- const DEF={rdw:54,lh:1.8,bg:1,tm:1,dl:900};
+ const DEF={rdw:54,lh:1.8,bg:1,tm:1,dl:900,hv:1};
  let ov=null,box=null,back=null;
+ const FX=(n,a)=>{if(typeof sfx!="undefined"&&sfx.fx)sfx.fx(n,a)};
 
  /* applique les réglages à la page : largeur et interligne du lecteur, fond calme */
  function apply(){
@@ -17,7 +18,8 @@
   snd:{get:()=>st.snd,set:()=>{st.snd=!st.snd;save();if(typeof sndLabel=="function")sndLabel()}},
   calm:{get:()=>RCM,set:()=>rdrCalm()},
   bg:{get:()=>CF.bg,set:()=>{CF.bg=CF.bg?0:1}},
-  tm:{get:()=>CF.tm,set:()=>{CF.tm=CF.tm?0:1}}
+  tm:{get:()=>CF.tm,set:()=>{CF.tm=CF.tm?0:1}},
+  hv:{get:()=>CF.hv,set:()=>{CF.hv=CF.hv?0:1}}
  };
  const seg=(k,o)=>`<div class="cfs" role="group">${o.map(([l,v])=>`<button class="btn" data-k="${k}" data-v="${v}">${l}</button>`).join("")}</div>`;
  const tog=t=>`<button class="btn" data-t="${t}"></button>`;
@@ -35,6 +37,7 @@
   <div class="cfg">Ambiance</div>
   ${row("Fond animé","Vagues, navire, fumée, Navi… désactivés si coupé",tog("bg"))}
   ${row("Sons","",tog("snd"))}
+  ${row("Sons discrets","Survol des boutons et frappe au clavier",tog("hv"))}
   <div class="cfg">Quiz</div>
   ${row("Chronomètre","Affiché dans les banques de questions",tog("tm"))}
   ${row("Passage automatique","Délai après une bonne réponse (mode ⏭ Auto)",seg("dl",[["0,5 s",500],["0,9 s",900],["1,5 s",1500],["2,5 s",2500]]))}
@@ -51,6 +54,7 @@
    else if(d.a=="z+")rdrZoom(1);
    else if(d.a=="reset"){Object.assign(CF,DEF);rdrZoom(0);if(RCM)rdrCalm()}
    cfSave();apply();sync();
+   if(d.t&&d.t!="calm")FX(TG[d.t].get()?"on":"off");else if(d.k)FX("seg");else if(d.a=="reset")FX("reset");
    /* le chronomètre se remet à jour tout de suite dans une banque ouverte */
    if((d.t=="tm"||d.a=="reset")&&CB&&$("fl"))CB.ren();
   });
@@ -67,11 +71,12 @@
  function open(){
   if(!ov)build();
   back=document.activeElement;
-  sync();ov.hidden=false;
+  sync();ov.hidden=false;FX("panelOpen");
   const f=box.querySelector("[data-a=x]");if(f)f.focus();
  }
  function close(){
   if(!ov)return;
+  if(!ov.hidden)FX("panelClose");
   ov.hidden=true;
   if(back&&back.focus&&document.contains(back))back.focus();
  }

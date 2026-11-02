@@ -32,7 +32,7 @@ function openBank(s,b,l){
  let ord=lv.q.map((_,i)=>i),auto=true,str=0,fresh=-1,t0=Date.now(),cur=Math.max(0,ord.findIndex(i=>P.a[i]==null));
  const ok=i=>P.a[i]===lv.q[i].c,fmtT=()=>{const x=((Date.now()-t0)/1000)|0;return String(x/60|0).padStart(2,"0")+":"+String(x%60).padStart(2,"0")};
  clearInterval(window.CT);window.CT=setInterval(()=>{const e=$("tm");if(e)e.textContent=fmtT();else if(!$("fl"))clearInterval(window.CT)},1000);
- const ans=j=>{const i=ord[cur],q=lv.q[i];if(P.a[i]!=null)return;P.a[i]=j;fresh=j;srRec(srKeyB(b,l,i),j==q.c);if(j==q.c){str++;st.xp=(st.xp||0)+5;sfx.ok();fxPulse();if(str==5)fxAch("streak5","🔥 Série de 5");if(str==10)fxAch("streak10","⚡ Série de 10");if(str==20)fxAch("streak20","🌟 Série de 20")}else{str=0;sfx.ko()}save();R();fresh=-1;
+ const ans=j=>{const i=ord[cur],q=lv.q[i];if(P.a[i]!=null)return;P.a[i]=j;fresh=j;srRec(srKeyB(b,l,i),j==q.c);if(j==q.c){str++;st.xp=(st.xp||0)+5;sfx.ok();fxPulse();if(str>=3&&sfx.fx)setTimeout(sfx.fx,160,"combo",str);if(str==5)fxAch("streak5","🔥 Série de 5");if(str==10)fxAch("streak10","⚡ Série de 10");if(str==20)fxAch("streak20","🌟 Série de 20")}else{if(str>=3&&sfx.fx)setTimeout(sfx.fx,300,"lost");str=0;sfx.ko()}save();R();fresh=-1;
   if(Object.keys(P.a).length==lv.q.length)fxDone(lv.q.filter((_,x)=>P.a[x]===lv.q[x].c).length,lv.q.length);
   if(j==q.c&&auto&&cur<ord.length-1)setTimeout(()=>{if(CB&&$("fl")&&ord[cur]==i){cur++;R()}},CF.dl)};
  const go=d=>{cur=Math.max(0,Math.min(ord.length-1,cur+d));R()};

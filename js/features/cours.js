@@ -337,5 +337,7 @@ function cours(s){
   h+=acc("all","📖 Toutes les leçons en vrac","Lecture à la suite, dans l’ordre d’origine.",all.length+" leçons",all.map((l,i)=>row(l,i,"a")).join(""));
  }else if(all.length)h+=acc("all","📖 Leçons","Toutes les leçons de la matière.",all.length+" leçon"+(all.length>1?"s":""),all.map((l,i)=>row(l,i,"c")).join(""));
  h+=acc("memo","🧠 Aide-mémoire","Les points clés à retenir.",memo.length+" fiches",memo.map(([t,p])=>`<h3>${t}</h3><ul>${p.map(x=>`<li>${x}</li>`).join("")}</ul>`).join(""));
+ if(typeof VIDEOS!="undefined"&&VIDEOS[s.id]&&typeof vdRows=="function")h+=acc("vid","🎥 Tutos vidéo","Vidéos à regarder avec une grille de notes, et chaînes à suivre.",VIDEOS[s.id].v.length+" vidéo"+(VIDEOS[s.id].v.length>1?"s":""),vdRows(s.id));
+ if(typeof DOCS!="undefined"&&DOCS[s.id]&&DOCS[s.id].length&&typeof docsRows=="function")h+=acc("docs","📄 Documents PDF","Fiches et exercices à lire ici ou à télécharger.",DOCS[s.id].length+" fichier"+(DOCS[s.id].length>1?"s":""),docsRows(s.id));
  $("sb").innerHTML=h;
 }

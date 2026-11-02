@@ -1,6 +1,6 @@
 # MAP (généré par tools/mapgen.py : ne pas modifier à la main)
 
-## index.html (55 lignes)
+## index.html (59 lignes)
 ids : intro, lvl, start, logo, nav, theme, main
 CSS (ordre) : base.css > layout.css > components.css > intro.css > fx.css > onepiece.css > zelda.css > panther.css > revision.css > responsive.css
 JS (ordre) :
@@ -12,24 +12,28 @@ JS (ordre) :
   6. js/data/banks_plus.js
   7. js/data/phy_eco.js
   8. js/data/cineclub.js
-  9. js/core/state.js
-  10. js/core/utils.js
-  11. js/core/fx.js
-  12. js/ui/nav.js
-  13. js/ui/home.js
-  14. js/ui/subject.js
-  15. js/features/cours.js
-  16. js/features/exercices.js
-  17. js/features/quiz.js
-  18. js/features/situations.js
-  19. js/features/banks.js
-  20. js/features/devoirs.js
-  21. js/features/cine.js
-  22. js/features/revision.js
-  23. js/features/zelda.js
-  24. js/features/panther.js
-  25. js/app.js
-ATTENTION : même nom dans des dossiers différents : banks.js
+  9. js/data/docs.js
+  10. js/core/state.js
+  11. js/core/utils.js
+  12. js/core/fx.js
+  13. js/ui/nav.js
+  14. js/ui/home.js
+  15. js/ui/subject.js
+  16. js/features/cours.js
+  17. js/features/docs.js
+  18. js/features/exercices.js
+  19. js/features/quiz.js
+  20. js/features/situations.js
+  21. js/features/banks.js
+  22. js/features/devoirs.js
+  23. js/features/cine.js
+  24. js/features/revision.js
+  25. js/features/zelda.js
+  26. js/features/panther.js
+  27. js/features/sons.js
+  28. js/features/confort.js
+  29. js/app.js
+ATTENTION : même nom dans des dossiers différents : banks.js, docs.js
 
 ## css/base.css (21 lignes, 6 Ko) : variables de couleurs, thèmes clair/sombre, reset
   thèmes : dark, light
@@ -39,22 +43,22 @@ ATTENTION : même nom dans des dossiers différents : banks.js
 ## css/layout.css (17 lignes, 1 Ko) : structure générale : grille, barre latérale, zone principale
   sections : L10 réorganisation des matières par glisser-déposer
 
-## css/components.css (86 lignes, 8 Ko) : composants réutilisables : cartes, onglets, boutons, quiz, tableaux, leçons
-  sections : L21 liste des chapitres, aide-mémoire et lecteur de cours plein  | L34 taille du texte (A− A A+) : le facteur --rdz est posé sur #r | L37 la « page » : feuille centrée, texte grand, marges intérieur | L43 mots clés et notes « À retenir » plus lisibles dans le lecte | L53 barre de progression de lecture (cours.js) : fine, sous l'en | L62 sommaire latéral du lecteur (cours.js) : colonne à gauche su | L75 quiz : question plus grande, réponses sur deux colonnes quan | L80 bouton « Retour au cours » (cours.js), affiché pendant le qu
+## css/components.css (131 lignes, 12 Ko) : composants réutilisables : cartes, onglets, boutons, quiz, tableaux, leçons
+  sections : L21 liste des chapitres, aide-mémoire et lecteur de cours plein  | L34 taille du texte (A− A A+) : le facteur --rdz est posé sur #r | L37 la « page » : feuille centrée, texte grand, marges intérieur | L43 mots clés et notes « À retenir » plus lisibles dans le lecte | L53 barre de progression de lecture (cours.js) : fine, sous l'en | L62 sommaire latéral du lecteur (cours.js) : colonne à gauche su | L75 quiz : question plus grande, réponses sur deux colonnes quan | L80 banques (banks.js) : question et réponses à gauche, correcti | L89 pastilles de progression : groupées par 10, plus grandes, av | L95 réponses : icône ✓ / ✗ à droite, lisible sans la couleur ; . | L107 panneau « Confort » (confort.js) | L117 fond calme global (classe « still » sur <html>, posée par co | L121 bouton « Retour au cours » (cours.js), affiché pendant le qu | L128 mode lecture calme (cours.js) : fond uni, plus de décors du 
 
 ## css/intro.css (8 lignes, 0 Ko) : écran d’accueil (spawn)
 
 ## css/fx.css (28 lignes, 2 Ko) : animations, fissures, toasts, fond animé, confettis
 
-## css/onepiece.css (78 lignes, 35 Ko) : thème One Piece : mer profonde, or des trésors, affiches de prime
+## css/onepiece.css (84 lignes, 36 Ko) : thème One Piece : mer profonde, or des trésors, affiches de prime
   thèmes : onepiece
   variables : --bg --card --tx --mu --bd --ac --ok --ko --pr
-  sections : L15 version enrichie : navire en bois, affiches WANTED, parchemi | L35 détails cachés et clins d'œil | L56 navire pirate | L57 le bateau est dans la couche du fond : entre la vague arrièr | L64 lecteur de cours plein écran (cours.js) : pont de bois, page | L74 fond du lecteur de cours : carte marine, rose des vents, vag
+  sections : L15 version enrichie : navire en bois, affiches WANTED, parchemi | L35 détails cachés et clins d'œil | L56 navire pirate | L57 le bateau est dans la couche du fond : entre la vague arrièr | L64 lecteur de cours plein écran (cours.js) : pont de bois, page | L74 fond du lecteur de cours : carte marine, rose des vents, vag | L79 quiz : encart de correction (.qzr) en bulle de parchemin, co
 
-## css/zelda.css (64 lignes, 5 Ko) : thème Zelda « Forêt Kokiri » (Ocarina of Time) : vert mousse, écorce, or vieilli, lueur de fée cyan
+## css/zelda.css (69 lignes, 5 Ko) : thème Zelda « Forêt Kokiri » (Ocarina of Time) : vert mousse, écorce, or vieilli, lueur de fée cyan
   thèmes : zelda
   variables : --bg --card --tx --mu --bd --ac --ok --ko --pr --cy --leather
-  sections : L7 fond : veines de bois très discrètes (au-dessus du canvas, s | L10 barre latérale : écorce sombre, filet or vieilli | L16 boutons : cuir (secondaire) et vert tunique (action principa | L20 effet magique : lueur de fée cyan au survol | L24 cartes : olive, cadre à double filet doré | L29 titres : séparateur pointillé doré (lucioles) + Triforce | L32 barres de progression : vert et cyan, avec Navi au bout | L37 leçons : parchemin | L43 écran d'accueil : sous-bois et rayons de lumière | L48 bouton retour en haut : Triforce | L52 Navi : fée lumineuse qui suit le curseur (créée par zelda.js | L61 rubis qui s'envolent à chaque bonne réponse
+  sections : L7 fond : veines de bois très discrètes (au-dessus du canvas, s | L10 barre latérale : écorce sombre, filet or vieilli | L16 boutons : cuir (secondaire) et vert tunique (action principa | L20 effet magique : lueur de fée cyan au survol | L24 cartes : olive, cadre à double filet doré | L29 titres : séparateur pointillé doré (lucioles) + Triforce | L32 barres de progression : vert et cyan, avec Navi au bout | L37 leçons : parchemin | L43 écran d'accueil : sous-bois et rayons de lumière | L48 bouton retour en haut : Triforce | L52 contraste : dans le lecteur, titres, puces et mots d'appel d | L57 Navi : fée lumineuse qui suit le curseur (créée par zelda.js | L66 rubis qui s'envolent à chaque bonne réponse
 
 ## css/panther.css (108 lignes, 10 Ko) : thème « Panthère Rose » : jazz noir 1940, rouge brique dominant, rose, noir, crème, braise orange
   thèmes : panther
@@ -104,17 +108,20 @@ Thèmes CSS présents : dark, light, onepiece, panther, zelda
 ## js/data/cineclub.js (17 lignes, 2 Ko) : programme du ciné-club 2026-2027 (d = date, t = titre, r = réalisateur, x = description sans spoil)
   constantes/état : CINECLUB@3
 
-## js/core/state.js (9 lignes, 0 Ko) : état de l’application et sauvegarde (localStorage)
-  fonctions : save@5
-  constantes/état : st@3, cur@7, sub@8
+## js/data/docs.js (40 lignes, 3 Ko) : documents PDF par matière, affichés dans l'onglet Cours (volet « Documents PDF ») ; les fichiers sont dans le dossier docs/
+  constantes/état : DOCS@5, VIDEOS@21
+
+## js/core/state.js (13 lignes, 0 Ko) : état de l’application et sauvegarde (localStorage)
+  fonctions : save@5, cfSave@10
+  constantes/état : st@3, CF@9, cur@11, sub@12
 
 ## js/core/utils.js (8 lignes, 0 Ko) : petites fonctions partagées : esc, $, moyenne, formats, niveau XP
   fonctions : esc@3, avg@5, fmt@6, lv@7
 
-## js/core/fx.js (194 lignes, 15 Ko) : effets : sons synthétisés, fissures, toasts, succès, confettis, fond animé
-  fonctions : OP@5, actx@7, tone(f1,f2,d,type,v,delay)@8, noi(d,v,fc,delay,q,type)@16, crack()@80, toast(m)@94, fxAch(k,label)@98, fxDone(good,total)@99, fxEnter()@103, confetti()@104, sndLabel@119, berry()@126, fxPulse()@131, jar()@158, fxWanted(t,n)@165
-  constantes/état : REDUCE@4, AC@6, rnd@26, OPS@27, sfx@64, pulse@124, PX@125, JM@156, JR@157
-  sections : L15 bruit filtré (coups, froissement, craquement) : d = durée, v | L25 sons du thème One Piece (appelés par sfx seulement quand OP( | L79 fissure SVG aléatoire (réponse fausse) | L93 notifications, succès, fin de niveau | L117 bouton son + clic sonore global | L123 fond animé : vagues + points, pulsation à chaque bonne répon | L155 One Piece : jargon pirate, Pandaman caché, chapeau de retour | L172 One Piece : navire pirate qui navigue en bas de l'écran (rem
+## js/core/fx.js (197 lignes, 15 Ko) : effets : sons synthétisés, fissures, toasts, succès, confettis, fond animé
+  fonctions : OP@5, STILL@7, actx@9, tone(f1,f2,d,type,v,delay)@10, noi(d,v,fc,delay,q,type)@18, crack()@82, toast(m)@96, fxAch(k,label)@100, fxDone(good,total)@101, fxEnter()@105, confetti()@106, sndLabel@121, berry()@128, fxPulse()@133, jar()@161, fxWanted(t,n)@168
+  constantes/état : REDUCE@4, AC@8, rnd@28, OPS@29, sfx@66, pulse@126, PX@127, JM@159, JR@160
+  sections : L6 fond calme (panneau Confort) : classe « still » sur <html> ; | L17 bruit filtré (coups, froissement, craquement) : d = durée, v | L27 sons du thème One Piece (appelés par sfx seulement quand OP( | L81 fissure SVG aléatoire (réponse fausse) | L95 notifications, succès, fin de niveau | L119 bouton son + clic sonore global | L125 fond animé : vagues + points, pulsation à chaque bonne répon | L158 One Piece : jargon pirate, Pandaman caché, chapeau de retour | L175 One Piece : navire pirate qui navigue en bas de l'écran (rem
 
 ## js/ui/nav.js (75 lignes, 4 Ko) : barre latérale, navigation et ordre des matières (glisser-déposer, sauvegardé dans st.order)
   fonctions : SO@5, setOrder(ids,focus)@6, nav()@10, dragNav()@21, go()@74
@@ -127,24 +134,30 @@ Thèmes CSS présents : dark, light, onepiece, panther, zelda
 ## js/ui/subject.js (10 lignes, 0 Ko) : page d’une matière et ses onglets
   fonctions : subj()@3
 
-## js/features/cours.js (333 lignes, 17 Ko) : onglet Cours : chapitres détaillés (LESSONS) lus en plein écran, paginés, + aide-mémoire repliable (COURS)
-  fonctions : toggleLes()@3, noNum@6, rdrZoomApply()@12, rdrWide@23, rdrTitles(pg)@24, rdrTocApply()@27, rdrToc()@34, rdrTocGo(j,k)@47, rdrTocToggle()@51, rdrCounts()@57, rdrProgress()@58, rdrProgressGo(e)@76, rdrLT@87, rdrResumeAll()@88, rdrSave()@89, rdrResumeFind(sid)@96, rdrAgo(t)@109, rdrResume()@114, rdrResumeForget()@119, rdrZoom(d)@125, rdrPages(h)@132, rdrLoad(i,p)@149, rdrShow()@155, rdrPage(k)@174, rdrMaskStyle()@177, rdrMask(m)@186, rdrMaskUI(b)@192, rdrGo(d)@204, rdrKey(e)@212, rdrOpen(i,k)@219, rdrClose()@241, rdrToQuiz()@250, rdrBackSync()@255, rdrBackHide()@264, rdrBack()@265, crsList(id,n)@275, crsStyle()@284, crsToggle(id)@310, cours(s)@311
-  constantes/état : RDR@7, RZ@10, RZL@11, RSW@21, RSN@22, RDB@249, CV@274
-  sections : L5 Lecteur plein écran | L9 Taille du texte du lecteur : paliers de 10 %, mémorisée (clé | L20 Sommaire latéral : leçons de la liste ouverte, pages de la l | L56 Barre de progression de lecture : avancement dans toute la l | L86 Reprise de lecture : dernière page lue par matière (clé loca | L131 Découpe un chapitre en pages : une page par titre <h3>, les  | L176 Feuille blanche : masque la colonne gauche ou droite des tab | L248 Retour au cours depuis le quiz : mémorise chapitre et page,  | L273 Onglet Cours : une seule page, chapitres du programme avec l
+## js/features/cours.js (344 lignes, 19 Ko) : onglet Cours : chapitres détaillés (LESSONS) lus en plein écran, paginés, + aide-mémoire repliable (COURS)
+  fonctions : toggleLes()@3, noNum@6, rdrZoomApply()@12, rdrCalmApply()@22, rdrCalm()@28, rdrWide@32, rdrTitles(pg)@33, rdrTocApply()@36, rdrToc()@43, rdrTocGo(j,k)@56, rdrTocToggle()@60, rdrCounts()@66, rdrProgress()@67, rdrProgressGo(e)@85, rdrLT@96, rdrResumeAll()@97, rdrSave()@98, rdrResumeFind(sid)@105, rdrAgo(t)@118, rdrResume()@123, rdrResumeForget()@128, rdrZoom(d)@134, rdrPages(h)@141, rdrLoad(i,p)@158, rdrShow()@164, rdrPage(k)@183, rdrMaskStyle()@186, rdrMask(m)@195, rdrMaskUI(b)@201, rdrGo(d)@213, rdrKey(e)@221, rdrOpen(i,k)@228, rdrClose()@250, rdrToQuiz()@259, rdrBackSync()@264, rdrBackHide()@273, rdrBack()@274, crsList(id,n)@284, crsStyle()@293, crsToggle(id)@319, cours(s)@320
+  constantes/état : RDR@7, RZ@10, RZL@11, RCM@21, RSW@30, RSN@31, RDB@258, CV@283
+  sections : L5 Lecteur plein écran | L9 Taille du texte du lecteur : paliers de 10 %, mémorisée (clé | L20 Mode lecture calme : masque les décors du thème (navire, fum | L29 Sommaire latéral : leçons de la liste ouverte, pages de la l | L65 Barre de progression de lecture : avancement dans toute la l | L95 Reprise de lecture : dernière page lue par matière (clé loca | L140 Découpe un chapitre en pages : une page par titre <h3>, les  | L185 Feuille blanche : masque la colonne gauche ou droite des tab | L257 Retour au cours depuis le quiz : mémorise chapitre et page,  | L282 Onglet Cours : une seule page, chapitres du programme avec l
+
+## js/features/docs.js (78 lignes, 6 Ko) : documents PDF des matières : liste (volet « Documents PDF » de l'onglet Cours, appelée par cours.js) et visionneuse plein écran
+  fonctions : docsStyle()@5, docsRows(id)@29, pdfOpen(id,i)@34, pdfClose(quiet)@46, vdGet(id)@56, vdFx(on)@57, vdCk(id,i,on,tot)@58, vdNote(id,v)@63, vdRows(id)@64
+  constantes/état : PDFV@4, VDT@62
+  sections : L28 lignes de la liste d'une matière (corps du volet de l'onglet | L55 tutos vidéo : liste, questions à noter (cases) et notes pers
 
 ## js/features/exercices.js (15 lignes, 1 Ko) : onglet S’entraîner : accueil (révision + cartes) puis l’exercice choisi, avec bouton de retour
   fonctions : exoGo(u)@4, exo(s)@5
   constantes/état : EXO@3
 
-## js/features/quiz.js (26 lignes, 1 Ko) : quiz rapide (QCM de la matière)
+## js/features/quiz.js (35 lignes, 2 Ko) : quiz rapide (QCM de la matière) : même présentation que les banques (colonnes, barre fixe, pastilles, ✓ / ✗) ; les fonctions qz* viennent de banks.js
   fonctions : quiz(s)@3
 
 ## js/features/situations.js (16 lignes, 0 Ko) : mises en situation (réponses libres + mots-clés)
   fonctions : sit(s)@3
 
-## js/features/banks.js (52 lignes, 5 Ko) : banques de questions : niveaux, bilan, raccourcis clavier
-  fonctions : bs@3, banks(s)@5, openBank(s,b,l)@10
+## js/features/banks.js (75 lignes, 7 Ko) : banques de questions : niveaux, bilan, raccourcis clavier
+  fonctions : bs@3, qzBarOff()@6, qzBarSet(n,tot,pvOff,nxOff,nxTxt)@9, qzDots(tot,f,cur,num)@15, qzIcon@24, banks(s)@25, openBank(s,b,l)@30
   constantes/état : CB@4
+  sections : L5 barre Précédent / Suivant fixe (ajoutée à <body>, retirée dè | L8 éléments partagés avec quiz.js : barre Précédent / Suivant,  | L14 f(n) renvoie "g" (réussie), "r" (ratée) ou "" ; num(n) donne
 
 ## js/features/devoirs.js (15 lignes, 1 Ko) : devoirs, notes et moyennes pondérées
   fonctions : dev(s)@3
@@ -164,12 +177,18 @@ Thèmes CSS présents : dark, light, onepiece, panther, zelda
 
 ## js/features/panther.js (92 lignes, 8 Ko) : extras du thème Panthère Rose : sons jazz, notes, fumée, vocabulaire d’enquête
 
+## js/features/sons.js (151 lignes, 14 Ko) : effets sonores de l'interface (lecteur, quiz, panneau Confort), avec une version par thème
+
+## js/features/confort.js (99 lignes, 4 Ko) : panneau « Confort » : taille du texte, largeur, interligne, mode calme, fond animé, sons, chronomètre et délai du quiz
+
 ## js/app.js (67 lignes, 4 Ko) : démarrage : thème, sélecteur de thème, écran d’accueil, premier affichage (toujours chargé en dernier)
   fonctions : curTh@14, setTh@15, pick()@42
   constantes/état : TH@3, TX@5, TS@13
   sections : L4 textes propres à chaque thème : icône du logo, texte de l’éc | L12 aperçu des couleurs de chaque thème dans le sélecteur : fond | L21 style du sélecteur : intégré ici, donc aucune ligne à ajoute | L41 sélecteur : fenêtre centrée, fond flouté ; se ferme avec ✕, 
 
 ## État partagé
-champs de st : ach, b, bk, cc, g, n, order, rvc, snd, sr, srInit, theme, xp
-clés localStorage : btsapp, btsrdp, btsrds, btsrdz
+champs de st : ach, b, bk, cc, g, n, order, rvc, snd, sr, srInit, theme, vd, xp
+clés localStorage : btsapp, btscf, btsrdc, btsrdp, btsrds, btsrdz
 
+## Autres ressources
+- docs/ : 5 fichier(s)
